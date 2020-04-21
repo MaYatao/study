@@ -7,7 +7,7 @@ import com.tao.blog.bean.Content;
 import com.tao.blog.mapper.CommentMapper;
 import com.tao.blog.mapper.ContentMapper;
 import com.tao.blog.service.ContentService;
-import com.tao.common.bean.BlogResult;
+import com.tao.blog.bean.BlogResult;
 import com.tao.user.bean.User;
 import com.tao.user.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -60,7 +60,7 @@ public class ContentServiceImpl implements ContentService {
         blogResult.setUsername(u.getUsername());
         blogResult.setHeadImage(u.getHeadImage());
         blogResult.setContentTime(c.getContentTime());
-        blogResult.setFlag(c.getFlag());
+        blogResult.setTopic(c.getTopic());
         blogResult.setCollection(c.getCollection());
         blogResult.setComment(c.isComment());
         blogResult.setComments(c.getComments());
@@ -70,10 +70,11 @@ public class ContentServiceImpl implements ContentService {
     }
 
     @Override
-    public PageInfo<BlogResult> getHotArticle(Integer page, Integer row) {
+    public PageInfo<BlogResult> getHotArticle(Integer page, Integer row, Integer type) {
         Example example = new Example(Content.class);
         example.setOrderByClause("views");
         Criteria criteria = example.createCriteria();
+        criteria.andEqualTo("type", type);
         criteria.andEqualTo("status", 0);
         List<Content> contentList = contentMapper.selectByExample(example);
         List<BlogResult> blogResultList = new ArrayList<>();
@@ -89,7 +90,7 @@ public class ContentServiceImpl implements ContentService {
             blogResult.setComments(c.getComments());
             blogResult.setHeadImage(u.getHeadImage());
             blogResult.setContentTime(c.getContentTime());
-            blogResult.setFlag(c.getFlag());
+            blogResult.setTopic(c.getTopic());
             blogResult.setCollection(c.getCollection());
             blogResult.setComment(c.isComment());
             blogResult.setStatus(c.getStatus());
@@ -103,11 +104,12 @@ public class ContentServiceImpl implements ContentService {
     }
 
     @Override
-    public PageInfo<BlogResult> getLastArticle(Integer page, Integer row) {
+    public PageInfo<BlogResult> getLastArticle(Integer page, Integer row, Integer type) {
         Example example = new Example(Content.class);
         example.setOrderByClause("content_time");
         Criteria criteria = example.createCriteria();
         criteria.andEqualTo("status", 0);
+        criteria.andEqualTo("type", type);
         List<Content> contentList = contentMapper.selectByExample(example);
         List<BlogResult> blogResultList = new ArrayList<>();
         for (Content c : contentList) {
@@ -121,7 +123,8 @@ public class ContentServiceImpl implements ContentService {
             blogResult.setUsername(u.getUsername());
             blogResult.setHeadImage(u.getHeadImage());
             blogResult.setContentTime(c.getContentTime());
-            blogResult.setFlag(c.getFlag());
+            blogResult.setType(c.getType());
+            blogResult.setKnowledges(c.getKnowledges());
             blogResult.setCollection(c.getCollection());
             blogResult.setComment(c.isComment());
             blogResult.setComments(c.getComments());
@@ -157,7 +160,9 @@ public class ContentServiceImpl implements ContentService {
             blogResult.setUsername(u.getUsername());
             blogResult.setHeadImage(u.getHeadImage());
             blogResult.setContentTime(c.getContentTime());
-            blogResult.setFlag(c.getFlag());
+            blogResult.setTopic(c.getTopic());
+            blogResult.setType(c.getType());
+            blogResult.setKnowledges(c.getKnowledges());
             blogResult.setCollection(c.getCollection());
             blogResult.setComment(c.isComment());
             blogResult.setComments(c.getComments());

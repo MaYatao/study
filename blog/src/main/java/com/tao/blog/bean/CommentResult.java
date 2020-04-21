@@ -11,7 +11,7 @@ public class CommentResult {
     private   String  fheadImage;  //头像
     private  String tusername;
     private  int tuserId;
-    private   String theadImage;  //头像
+    private  String theadImage;  //头像
     private Integer contentId;
     private Integer courseId;
     private  Comment comment;

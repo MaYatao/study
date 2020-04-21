@@ -3,7 +3,7 @@ package com.tao.blog.controller;
 import com.github.pagehelper.PageInfo;
 import com.tao.blog.bean.Content;
 import com.tao.blog.service.ContentService;
-import com.tao.common.bean.BlogResult;
+import com.tao.blog.bean.BlogResult;
 import com.tao.common.utils.AIResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -47,9 +47,9 @@ public class ContentController {
 
     @RequestMapping(value = "/getHotArticle", method = RequestMethod.POST)
     @ResponseBody
-    public AIResult getHotArticle(Integer page, Integer row) {
+    public AIResult getHotArticle(Integer page, Integer row,Integer  type) {
         try {
-            PageInfo<BlogResult> contents = contentService.getHotArticle( page,  row);
+            PageInfo<BlogResult> contents = contentService.getHotArticle( page,  row,type);
             return AIResult.ok(contents);
         } catch (Exception e) {
             e.printStackTrace();
@@ -59,9 +59,9 @@ public class ContentController {
 
     @RequestMapping(value = "/getLastArticle", method = RequestMethod.POST)
     @ResponseBody
-    public AIResult getLastArticle(Integer page, Integer row) {
+    public AIResult getLastArticle(Integer page, Integer row ,Integer  type) {
         try {
-            PageInfo<BlogResult> contents = contentService.getLastArticle(page,  row);
+            PageInfo<BlogResult> contents = contentService.getLastArticle(page,  row,type);
             return AIResult.ok(contents);
         } catch (Exception e) {
             return AIResult.build(500, e.getMessage());

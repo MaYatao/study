@@ -2,7 +2,7 @@ package com.tao.course.service.impl;
 
 
 import com.tao.course.bean.Subject;
-import com.tao.course.bean.SubjectResult;
+import com.tao.course.pojo.SubjectResult;
 import com.tao.course.mapper.SubjectMapper;
 import com.tao.course.service.SubjectService;
 import org.springframework.beans.factory.annotation.Autowired;

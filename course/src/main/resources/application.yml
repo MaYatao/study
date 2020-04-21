@@ -23,10 +23,10 @@ spring:
     username: guest
     password: guest
     #配置自动建表：updata:没有表新建，有表更新操作,控制台显示建表语句
-    jpa:
-      hibernate:
-        ddl-auto: update
-      show-sql: true
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
 logging:
   level:
     com.tao.course.mapper: debug

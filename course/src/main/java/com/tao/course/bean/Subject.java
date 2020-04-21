@@ -17,9 +17,9 @@ public class Subject {
     @Id
     @Column(name="subject_id")
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private   int  subjectId;  // 方向科目章节id
+    private   Integer  subjectId;  // 方向科目章节id
     private  String  title;
     @Column(name="parent_id")
-    private  int    parentId;   //方向
+    private  Integer    parentId;   //方向
 
 }

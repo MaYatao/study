@@ -27,17 +27,22 @@ public class Content {
     @Column(name="user_id")
     private Integer userId;  //发布者
     @Column(name="agree",columnDefinition="int default 0")
-    private int agree;   //点赞数
+    private int agree;      //点赞数
     @Column(name="comments",columnDefinition="int default 0")
     private int comments;   //评论数
     @Column(name="status",columnDefinition="int default 0")
     private int status;    //删除-1，草稿1，发布0
     @Column(name="collection",columnDefinition="int default 0")
-    private int collection; //转发数
+    private int collection;  //转发数
     @Column(name="views",columnDefinition="int default 0")
     private  int  views;  //浏览量
-    private  String flag ;  //标签
-    @Column(name="comment")
+    private  String topic ;  //话题
+    // 0 学习贴  1 话题贴
+    @Column(name="type",columnDefinition="int default 0")
+    private  int type;
+    private  String  knowledges; //知识点
+
+    @Column(name="is_comment")
     private  boolean comment;  //是否开启评论
 
 }

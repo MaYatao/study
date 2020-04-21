@@ -15,9 +15,9 @@ import javax.persistence.*;
 public class RecordCourse {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private   int  rcid;
-    private   int  userId;
-    private   int   courseId;//课程名
+    private   Integer  rcid;
+    private   Integer  userId;
+    private   Integer   courseId;//课程名
 
     private   String  totleTime;//学习总时间
 

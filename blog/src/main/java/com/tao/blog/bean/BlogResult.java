@@ -1,4 +1,4 @@
-package com.tao.common.bean;
+package com.tao.blog.bean;
 
 import lombok.Data;
 
@@ -17,8 +17,11 @@ public class BlogResult {
     private int status;    //删除-1，草稿1，发布0
     private int collection; //转发数
     private  int  views;  //浏览量
-    private  String flag ;  //标签
+    private  String topic ;  //标签
     private  boolean comment;  //是否开启评论
+
+    private  int type;
+    private  String  knowledges; //知识点
 
 
 

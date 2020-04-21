@@ -1,6 +1,6 @@
 package com.tao.course.service;
 
-import com.tao.course.bean.SubjectResult;
+import com.tao.course.pojo.SubjectResult;
 
 import java.util.List;
 

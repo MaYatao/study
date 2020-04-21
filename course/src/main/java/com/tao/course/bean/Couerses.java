@@ -32,7 +32,7 @@ public class Couerses {
 
     private   String     uploadTime;   //上传时间
     @Column(name="user_id")
-    private   int    userId; //  作者
+    private   Integer    userId; //  作者
     @Column(name="direction")
     private   Integer     direction;  //方向  前端，后端
     @Column(name="degree",columnDefinition="int default 0")

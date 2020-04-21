@@ -1,4 +1,6 @@
-package com.tao.course.bean;
+package com.tao.course.pojo;
+
+import lombok.Data;
 
 /**
  * 功能描述：返回的地图
@@ -7,6 +9,7 @@ package com.tao.course.bean;
  * @Date: 2020/4/16 17:18
  */
 
+@Data
 public class Map {
 
 }

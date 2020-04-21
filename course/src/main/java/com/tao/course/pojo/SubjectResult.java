@@ -1,4 +1,4 @@
-package com.tao.course.bean;
+package com.tao.course.pojo;
 
 import lombok.Data;
 

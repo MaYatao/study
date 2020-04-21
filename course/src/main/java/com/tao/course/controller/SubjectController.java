@@ -2,7 +2,7 @@ package com.tao.course.controller;
 
 
 import com.tao.common.utils.AIResult;
-import com.tao.course.bean.SubjectResult;
+import com.tao.course.pojo.SubjectResult;
 import com.tao.course.service.SubjectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
