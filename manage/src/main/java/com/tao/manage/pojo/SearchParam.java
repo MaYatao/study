@@ -11,9 +11,13 @@ import java.util.Date;
  * @Date: 2020/4/26 10:01
  */
 @Data
-public class UserSearchParam {
+public class SearchParam {
     private String id;
 
+    private   String  description;  // 课程描述
+    private   String   basics;   //学习基础
+    private    String  goal  ;   //学习目标
+    private   String  knowledges ;   //知识点
 
     private String userName;
 
