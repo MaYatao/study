@@ -41,9 +41,12 @@ public class myesTest2 {
     @Before
     public void beforeMethod() {
         try {
+            /**
+             * cluster.name: my-application
+             */
             //获取es连接
             Settings setting = Settings.builder()
-                    .put("cluster.name", "ec-elasticsearch")
+                    .put("cluster.name", "my-application")
                     .put("client.transport.sniff", true)//启动嗅探功能
                     .build();
             // 创建client
@@ -51,6 +54,8 @@ public class myesTest2 {
                     .addTransportAddresses(new InetSocketTransportAddress(InetAddress.getByName(HOST), PORT));
             System.out.println("连接成功！");
         } catch (UnknownHostException e) {
+            System.out.println("111111111111111111111111111111111111111111111111111111111");
+            System.out.println("连接失败");
             e.printStackTrace();
         }
     }
@@ -68,14 +73,14 @@ public class myesTest2 {
         String json = JsonUtils.objectToJson(esvo);
         //插入数据时不给id赋值，自动生成id。
         IndexResponse response = client.prepareIndex("accesstest", "test01").setSource(json).execute().actionGet();
-        //多次index这个版本号会变  
+        //多次index这个版本号会变
         System.out.println("response.version():" + response.getVersion());
     }
 
     //根据id查询方法测试
     @Test
     public void getTest() throws Exception {
-        GetResponse response = client.prepareGet("accesstest", "test01", "1").execute().actionGet();
+        GetResponse response = client.prepareGet("accesstest", "test01", "21").execute().actionGet();
         System.out.println(response.getId());
         System.out.println(response.getSourceAsString());
     }
