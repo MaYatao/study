@@ -23,11 +23,17 @@ import org.elasticsearch.transport.client.PreBuiltTransportClient;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.boot.SpringBootConfiguration;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 
 
+@RunWith(SpringRunner.class)
+@SpringBootTest
 public class myesTest2 {
 
-    public final static String HOST = "127.0.0.1";
+    public final static String HOST = "192.168.183.130";
     // http请求的端口是9200，客户端是9300
     public final static int PORT = 9300;
     static TransportClient client = null;

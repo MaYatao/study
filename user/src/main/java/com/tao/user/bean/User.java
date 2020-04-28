@@ -24,12 +24,10 @@ public class User  {
     private   String   birthday;  //出生日期
     private   String  joinDay;  //加入时间
     private   String  headImage;  //头像
-    private   String  address;  //地址
     private   boolean  sex;  //性别
     private   String   school; //学校
     private    Integer    identity;  //身份 0学生，1教师，2管理员
-    private    String  position;  //教师职称
-    private   String expectation ;  // 方向
+    private   String    expectation ;  // 方向
     private  String   description;//个人简介
 
 
