@@ -70,6 +70,6 @@ public class Tests {
      * 备注
      */
     private String other;
-    @Column(name = "views", columnDefinition = "int default 0")
-    private int views;
+    @Column(name = "done", columnDefinition = "int default 0")
+    private Integer done;
 }

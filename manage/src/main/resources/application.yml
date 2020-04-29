@@ -3,7 +3,6 @@ server:
   tomcat:  #修改内置tomcat上传文件大小
     max-http-post-size: -1
 spring:
-  elasticsearch：
   servlet:
     multipart:
       enabled: true
@@ -75,8 +74,4 @@ fdfs:
     - 192.168.183.130:22122
 
 
-#自定义配置项
-elasticsearch:
-  host:
-  port: 9300
-  clusterName: my-applicationd
+
