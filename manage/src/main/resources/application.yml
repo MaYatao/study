@@ -77,6 +77,6 @@ fdfs:
 
 #自定义配置项
 elasticsearch:
-  host: 192.168.183.130
+  host:
   port: 9300
   clusterName: my-applicationd

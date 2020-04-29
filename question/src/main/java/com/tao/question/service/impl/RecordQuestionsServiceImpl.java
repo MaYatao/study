@@ -88,7 +88,7 @@ public class RecordQuestionsServiceImpl  implements RecordQuertionsService {
             questionResult.setTestId(rq.getTestId());
             questionResult.setUserAnswer(rq.getUserAnswer());
             questionResult.setUserId(rq.getUserId());
-            questionResult.setError(rq.isError());
+            questionResult.setError(rq.getError());
             questionResult.setQid(rq.getQusertionId());
             questionResults.add(questionResult);
         }

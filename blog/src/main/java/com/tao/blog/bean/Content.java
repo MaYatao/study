@@ -34,7 +34,7 @@ public class Content {
     /**
      * 发布时间
      */
-    private String contentTime;
+    private String createTime;
     /**
      * 发布者
      */
@@ -44,22 +44,17 @@ public class Content {
      * 点赞数
      */
     @Column(name = "agree", columnDefinition = "int default 0")
-    private int agree;
+    private Integer agree;
     /**
      * 评论数
      */
     @Column(name = "comments", columnDefinition = "int default 0")
-    private int comments;
+    private Integer comments;
     /**
      * 删除-1，草稿1，发布0
      */
     @Column(name = "status", columnDefinition = "int default 0")
-    private int status;
-    /**
-     * 数
-     */
-    @Column(name = "collection", columnDefinition = "int default 0")
-    private int collection;
+    private Integer status;
     /**
      * 浏览量
      */
@@ -74,7 +69,7 @@ public class Content {
      * 0 学习贴  1 话题贴
      */
     @Column(name = "type", columnDefinition = "int default 0")
-    private int type;
+    private Integer type;
     /**
      * 知识点
      */

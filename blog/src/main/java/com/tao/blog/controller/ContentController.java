@@ -31,7 +31,7 @@ public class ContentController {
         Date currentTime = new Date();
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         String dateString = formatter.format(currentTime);
-        content.setContentTime(dateString);
+        content.setCreateTime(dateString);
         try {
             if(content.getContentId()==null){
                 contentService.save(content);

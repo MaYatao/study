@@ -16,10 +16,14 @@ public class Image {  //公告消息表
     private  String info;
 
     private  String url;
-
-    private  String link; //链接
-
-    private  Boolean status; //是的过期
+  /**
+     链接
+     */
+    private  String link; //
+  /**
+     是的过期
+     */
+    private  Boolean status; //
     @Column(name="publish_time")
     private  String publishTime;
     @Column(name="delete_time")

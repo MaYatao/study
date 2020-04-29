@@ -57,5 +57,4 @@ public class Comment {   //评论表
     @Column(name = "agree", columnDefinition = "int default 0")
     private Integer agree;
 
-
 }

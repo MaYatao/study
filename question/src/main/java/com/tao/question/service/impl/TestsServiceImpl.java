@@ -51,7 +51,6 @@ public class TestsServiceImpl implements TestsService {
         testResult.setTitle(tests.getTitle());
         testResult.setChoiceQuestios(new ArrayList<>());
         testResult.setChoicesQuestios(new ArrayList<>());
-        testResult.setContentQuestios(new ArrayList<>());
         String[] choice = tests.getChoiceQuestios().split(",");
         String[] choices = tests.getChoicesQuestios().split(",");
      /*   String[] content = tests.getContentQuestios().split(",");*/
@@ -67,12 +66,6 @@ public class TestsServiceImpl implements TestsService {
                 testResult.getChoicesQuestios().add(questionsMapper.selectByPrimaryKey(qId));
             }
         }
-/*        for (String s : content) {
-            if (!s.isEmpty()) {
-                int qId = Integer.valueOf(s);
-                testResult.getContentQuestios().add(questionsMapper.selectByPrimaryKey(qId));
-            }
-        }*/
         return testResult;
     }
 
@@ -99,10 +92,10 @@ public class TestsServiceImpl implements TestsService {
             testResult.setTitle(tests.getTitle());
             testResult.setChoiceQuestios(new ArrayList<>());
             testResult.setChoicesQuestios(new ArrayList<>());
-            testResult.setContentQuestios(new ArrayList<>());
+
             String[] choice = tests.getChoiceQuestios().split(",");
             String[] choices = tests.getChoicesQuestios().split(",");
-            String[] content = tests.getContentQuestios().split(",");
+
             for (String s : choice) {
                 if (!s.isEmpty()) {
                     int qId = Integer.valueOf(s);
@@ -115,13 +108,7 @@ public class TestsServiceImpl implements TestsService {
                     testResult.getChoicesQuestios().add(questionsMapper.selectByPrimaryKey(qId));
                 }
             }
-            for (String s : content) {
-                if (!s.isEmpty()) {
-                    int qId = Integer.valueOf(s);
-                    testResult.getContentQuestios().add(questionsMapper.selectByPrimaryKey(qId));
-                }
-            }
-            resultList.add(testResult);
+                      resultList.add(testResult);
         }
         PageHelper.startPage(page, row);
         PageInfo<TestResult> pages = new PageInfo<TestResult>(resultList);
@@ -134,7 +121,7 @@ public class TestsServiceImpl implements TestsService {
         Example example = new Example(Tests.class);
         Example.Criteria criteria=example.createCriteria();
         criteria.andEqualTo("type",1);
-        example.orderBy("testTime");
+        example.orderBy("createTime");
         testsList = testsMapper.selectByExample(example);
         List<TestResult> resultList = new ArrayList<>();
         for (Tests tests : testsList) {
@@ -146,11 +133,9 @@ public class TestsServiceImpl implements TestsService {
             testResult.setTitle(tests.getTitle());
             testResult.setChoiceQuestios(new ArrayList<>());
             testResult.setChoicesQuestios(new ArrayList<>());
-            testResult.setContentQuestios(new ArrayList<>());
-            String[] choice = tests.getChoiceQuestios().split(",");
+                String[] choice = tests.getChoiceQuestios().split(",");
             String[] choices = tests.getChoicesQuestios().split(",");
-            String[] content = tests.getContentQuestios().split(",");
-            for (String s : choice) {
+                    for (String s : choice) {
                 if (!s.isEmpty()) {
                     int qId = Integer.valueOf(s);
                     testResult.getChoiceQuestios().add(questionsMapper.selectByPrimaryKey(qId));
@@ -162,13 +147,7 @@ public class TestsServiceImpl implements TestsService {
                     testResult.getChoicesQuestios().add(questionsMapper.selectByPrimaryKey(qId));
                 }
             }
-            for (String s : content) {
-                if (!s.isEmpty()) {
-                    int qId = Integer.valueOf(s);
-                    testResult.getContentQuestios().add(questionsMapper.selectByPrimaryKey(qId));
-                }
-            }
-            resultList.add(testResult);
+                  resultList.add(testResult);
         }
         PageHelper.startPage(page, row);
         PageInfo<TestResult> pages = new PageInfo<TestResult>(resultList);
@@ -201,7 +180,7 @@ public class TestsServiceImpl implements TestsService {
         Date currentTime = new Date();
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         String dateString = formatter.format(currentTime);
-        tests.setTestTime(dateString);
+        tests.setCreateTime(dateString);
         tests.setCount(questionList.size());
         tests.setStatus(degree);
         tests.setUserId(userId);

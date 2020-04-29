@@ -54,7 +54,7 @@ public class myesTest2 {
                     .addTransportAddresses(new InetSocketTransportAddress(InetAddress.getByName(HOST), PORT));
             System.out.println("连接成功！");
         } catch (UnknownHostException e) {
-            System.out.println("111111111111111111111111111111111111111111111111111111111");
+
             System.out.println("连接失败");
             e.printStackTrace();
         }

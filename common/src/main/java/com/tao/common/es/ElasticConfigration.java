@@ -1,4 +1,4 @@
-package com.tao.manage.es;
+package com.tao.common.es;
 
 import org.elasticsearch.client.Client;
 import org.elasticsearch.client.transport.TransportClient;
@@ -19,29 +19,23 @@ import java.net.InetAddress;
 @Configuration
 public class ElasticConfigration {
 
-    @Value("${elasticsearch.host}")
-    private String esHost;
+    public final static String HOST = "192.168.183.130";
+    // http请求的端口是9200，客户端是9300
+    public final static int PORT = 9300;
+    private TransportClient client = null;
 
-    @Value("${elasticsearch.port}")
-    private int esPort;
-
-    @Value("${elasticsearch.clusterName}")
-    private String esClusterName;
-    
-    private TransportClient client;
     
     @PostConstruct
     public void initialize() throws Exception {
-	   Settings esSettings = Settings.builder()
-                  .put("cluster.name", esClusterName)
-                  .put("client.transport.sniff", true).build();
-	   client = new PreBuiltTransportClient(esSettings);
+        Settings setting = Settings.builder()
+                .put("cluster.name", "my-application")
+                .put("client.transport.sniff", true)//启动嗅探功能
+                .build();
+        // 创建client
+        client = new PreBuiltTransportClient(setting)
+                .addTransportAddresses(new InetSocketTransportAddress(InetAddress.getByName(HOST), PORT));
+        System.out.println("连接成功！");
 
-	   String[] esHosts = esHost.trim().split(",");
-	   for (String host : esHosts) {
-	       client.addTransportAddress(new InetSocketTransportAddress(InetAddress.getByName(host),
-           esPort));
-	   }
     }
     
     @Bean

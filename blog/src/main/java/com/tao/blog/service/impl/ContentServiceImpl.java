@@ -59,10 +59,9 @@ public class ContentServiceImpl implements ContentService {
         blogResult.setTitle(c.getTitle());
         blogResult.setUsername(u.getUsername());
         blogResult.setHeadImage(u.getHeadImage());
-        blogResult.setContentTime(c.getContentTime());
+        blogResult.setCreateTime(c.getCreateTime());
         blogResult.setTopic(c.getTopic());
-        blogResult.setCollection(c.getCollection());
-        blogResult.setComment(c.isComment());
+            blogResult.setComment(c.isComment());
         blogResult.setComments(c.getComments());
         blogResult.setStatus(c.getStatus());
         blogResult.setViews(c.getViews());
@@ -89,9 +88,8 @@ public class ContentServiceImpl implements ContentService {
             blogResult.setUsername(u.getUsername());
             blogResult.setComments(c.getComments());
             blogResult.setHeadImage(u.getHeadImage());
-            blogResult.setContentTime(c.getContentTime());
+            blogResult.setCreateTime(c.getCreateTime());
             blogResult.setTopic(c.getTopic());
-            blogResult.setCollection(c.getCollection());
             blogResult.setComment(c.isComment());
             blogResult.setStatus(c.getStatus());
             blogResult.setViews(c.getViews());
@@ -122,10 +120,9 @@ public class ContentServiceImpl implements ContentService {
             blogResult.setTitle(c.getTitle());
             blogResult.setUsername(u.getUsername());
             blogResult.setHeadImage(u.getHeadImage());
-            blogResult.setContentTime(c.getContentTime());
+            blogResult.setCreateTime(c.getCreateTime());
             blogResult.setType(c.getType());
             blogResult.setKnowledges(c.getKnowledges());
-            blogResult.setCollection(c.getCollection());
             blogResult.setComment(c.isComment());
             blogResult.setComments(c.getComments());
             blogResult.setStatus(c.getStatus());
@@ -159,11 +156,10 @@ public class ContentServiceImpl implements ContentService {
             blogResult.setTitle(c.getTitle());
             blogResult.setUsername(u.getUsername());
             blogResult.setHeadImage(u.getHeadImage());
-            blogResult.setContentTime(c.getContentTime());
+            blogResult.setCreateTime(c.getCreateTime());
             blogResult.setTopic(c.getTopic());
             blogResult.setType(c.getType());
             blogResult.setKnowledges(c.getKnowledges());
-            blogResult.setCollection(c.getCollection());
             blogResult.setComment(c.isComment());
             blogResult.setComments(c.getComments());
             blogResult.setStatus(c.getStatus());

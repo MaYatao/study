@@ -30,7 +30,7 @@ public class TestsController {
         Date currentTime = new Date();
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         String dateString = formatter.format(currentTime);
-        tests.setTestTime(dateString);
+        tests.setCreateTime(dateString);
         try {
             if (tests.getTestId() == null) {
                 testsService.save(tests);

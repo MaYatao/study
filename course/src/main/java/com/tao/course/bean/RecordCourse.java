@@ -10,15 +10,16 @@ import javax.persistence.*;
  * @date 2019/10/29 19:22
  **/
 @Entity
-@Table(name="tb_record_course")
+@Table(name="tb_course_record_")
 @Data
 public class RecordCourse {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private   Integer  rcid;
     private   Integer  userId;
-    private   Integer   courseId;//课程名
-
-    private   String  totleTime;//学习总时间
+    //课程名
+    private   Integer   courseId;
+    //学习总时间
+    private   String  totleTime;
 
 }

@@ -6,29 +6,42 @@ import javax.persistence.*;
 
 /**
  * @Author tao
- * @Description //TODO
+ * @Description TODO
  * @date 2019/10/28 19:00
  **/
 @Entity
-@Table(name="tb_user")
+@Table(name = "tb_user")
 @Data
-public class User  {
+public class User {
 
 
     @Id
-    @Column(name="user_id")
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private  Integer  userId;  //用户Id
-    private   String  username; //用户名
-    private   String  password; //密码
-    private   String   birthday;  //出生日期
-    private   String  joinDay;  //加入时间
-    private   String  headImage;  //头像
-    private   boolean  sex;  //性别
-    private   String   school; //学校
-    private    Integer    identity;  //身份 0学生，1教师，2管理员
-    private   String    expectation ;  // 方向
-    private  String   description;//个人简介
+    @Column(name = "user_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    /**
+     *用户Id
+     */
+    private Integer userId;
+    private String username;
+    private String password;
+    private String birthday;
+    private String joinDay;
+    private String headImage;
+    private boolean sex;
+    private String school;
+    /**
+     * 身份 0学生，1教师，2管理员
+     */
+
+    private Integer identity;
+    /**
+     * 方向
+     */
+    private String expectation;
+    /**
+     * 个人简介
+     */
+    private String description;
 
 
 }

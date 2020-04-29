@@ -1,8 +1,10 @@
-package com.tao.manage.es;
+package com.tao.course.service.impl;
 
+import com.tao.common.es.SearchParam;
 import com.tao.course.bean.Couerses;
-import com.tao.manage.pojo.SearchParam;
-import org.apache.catalina.core.StandardService;
+import com.tao.common.es.ElasticOperationService;
+
+import com.tao.course.service.EsCourseService;
 import org.apache.commons.collections.CollectionUtils;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,14 +13,14 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class EsCourseService implements StandardService, InitializingBean {
+public class EsCourseServiceImpl implements EsCourseService, InitializingBean {
 
     @Autowired
     private ElasticOperationService elasticOperationService;
     
     private String index = "course-api";
     
-    private String type = "Couerses";
+    private String type = "couerses";
     
     
     @Override
@@ -35,10 +37,11 @@ public class EsCourseService implements StandardService, InitializingBean {
 	       elasticOperationService.addDocumentToBulkProcessor(index, type, couerses);
 	   }
     }
-    
-    
+
+
+
     @Override
-    public void addUser(Couerses couerses) {
+    public void addCouerses(Couerses couerses) {
 	   elasticOperationService.addDocument(index, type, couerses);
     }
 
@@ -56,18 +59,10 @@ public class EsCourseService implements StandardService, InitializingBean {
 
     @Override
     public List<Couerses> queryByTitle(String title) {
-	
 	   SearchParam param = new SearchParam();
-	   param.setUserName(title);
+	   param.setTitle(title);
 	   return elasticOperationService.queryDocumentByParam(index, type, param,Couerses.class);
     }
 
-
-    @Override
-    public List<Couerses> queryByRoleName(Couerses couerses) {
-	   SearchParam param = new SearchParam();
-	 //  param.setRoleName(role.getName());
-	   return elasticOperationService.queryDocumentByParam(index, type, param,Couerses.class);
-    }
 
 }

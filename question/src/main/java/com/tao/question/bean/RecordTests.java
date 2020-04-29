@@ -19,18 +19,18 @@ public class RecordTests {
     @Column(name="user_id")
     private  int  userId;
     @Column(name="test_id")
-    private     Integer   testId;  //测试
-    private String title;//测试名
+    private     Integer   testId;
+    private String title;
     @Column(name="total_score" ,columnDefinition="int default 0")
-    private   int     totalScore;  //得分
+    private   int     totalScore;
     @Column(name="true_num" ,columnDefinition="int default 0")
     private   int      trueNum;
     @Column(name="total_num" ,columnDefinition="int default 0")
     private  int totalNum;
     @Column(name="ststus" ,columnDefinition="int default 0")
-    private  int ststus;   //试题难度
-    private  String    date; //完成记录
-    private  String  spendTime;  //
+    private  int ststus;
+    private  String    date;
+    private  String  spendTime;
 
 
 

@@ -17,7 +17,7 @@ public class BlogResult {
     //内容
     private String content;
     //发布时间
-    private String contentTime;
+    private String createTime;
     //评论数
     private int comments;
     //点赞数

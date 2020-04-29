@@ -14,9 +14,15 @@ public class Announce {
     private   Integer announceId;
 
     @Column(name="to_User",columnDefinition="int default 0")
-    private   Integer  toUser; //0 ,1学生，老师，-1全部
+    /**
+     学生，1,老师，-1全部
+     */
+    private   Integer  toUser;
     @Column(name="sent_time")
-    private    String sentTime;  //发送日期
+     /**
+     发送日期
+     */
+    private    String sentTime;
     private   String   content;
     private   String   title;
 
