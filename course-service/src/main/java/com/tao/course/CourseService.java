@@ -1,4 +1,4 @@
-package com.tao.question;
+package com.tao.course;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -8,13 +8,13 @@ import tk.mybatis.spring.annotation.MapperScan;
 /**
  * @Author tao
  * @Description //TODO
- * @date 2019/10/30 23:26
+ * @date 2019/11/10 22:54
  **/
 @SpringBootApplication
 @EnableDiscoveryClient
 @MapperScan("com.tao.*.mapper")
-public class AIQuestionService {
+public class CourseService {
     public static void main(String[] args) {
-        SpringApplication.run(AIQuestionService.class, args);
+        SpringApplication.run(CourseService.class, args);
     }
 }

@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>manage</artifactId>
+    <artifactId>manage-service</artifactId>
     <properties>
         <elasticsearch.version>5.6.4</elasticsearch.version>
 
@@ -23,7 +23,7 @@
 
         <dependency>
             <groupId>com.tao</groupId>
-            <artifactId>user</artifactId>
+            <artifactId>user-service</artifactId>
             <version>1.0-SNAPSHOT</version>
             <exclusions>
                 <exclusion>
@@ -140,11 +140,7 @@
             <version>1.0-SNAPSHOT</version>
             <scope>compile</scope>
         </dependency>
-        <dependency>
-            <groupId>com.tao</groupId>
-            <artifactId>course</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
+
         <dependency>
             <groupId>org.springframework.amqp</groupId>
             <artifactId>spring-rabbit</artifactId>
@@ -170,15 +166,15 @@
         </dependency>
         <dependency>
             <groupId>com.tao</groupId>
-            <artifactId>blog</artifactId>
+            <artifactId>blog-service</artifactId>
             <version>1.0-SNAPSHOT</version>
             <scope>compile</scope>
         </dependency>
-
         <dependency>
             <groupId>com.tao</groupId>
-            <artifactId>course</artifactId>
+            <artifactId>course-service</artifactId>
             <version>1.0-SNAPSHOT</version>
+            <scope>compile</scope>
         </dependency>
 
     </dependencies>

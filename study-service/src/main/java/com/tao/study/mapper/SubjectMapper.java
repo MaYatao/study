@@ -1,7 +1,7 @@
 package com.tao.study.mapper;
 
 
-import com.tao.manage.bean.Subject;
+import com.tao.study.bean.Subject;
 import tk.mybatis.mapper.common.Mapper;
 
 /**

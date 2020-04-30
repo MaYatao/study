@@ -1,10 +1,12 @@
 package com.tao.course.service.impl;
 
-import com.tao.study.es.SearchParam;
 import com.tao.course.bean.Couerses;
-import com.tao.study.es.ElasticOperationService;
 
+
+import com.tao.course.es.ElasticOperationService;
+import com.tao.course.es.SearchParam;
 import com.tao.course.service.EsCourseService;
+
 import org.apache.commons.collections.CollectionUtils;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;

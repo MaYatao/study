@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>course</artifactId>
+    <artifactId>course-service</artifactId>
 
     <dependencies>
         <!-- Mq配置-->
@@ -19,7 +19,7 @@
         </dependency>
         <dependency>
             <groupId>com.tao</groupId>
-            <artifactId>course</artifactId>
+            <artifactId>course-service</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
         <!--web启动器-->
@@ -119,7 +119,11 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
         </dependency>
-
+        <dependency>
+            <groupId>com.tao</groupId>
+            <artifactId>study-service</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 
     <build>

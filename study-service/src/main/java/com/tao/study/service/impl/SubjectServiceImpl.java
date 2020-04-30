@@ -1,16 +1,18 @@
 package com.tao.study.service.impl;
 
 
-import com.tao.course.bean.Subject;
-import com.tao.manage.pojo.SubjectResult;
-import com.tao.course.mapper.SubjectMapper;
-import com.tao.course.service.SubjectService;
+
+import com.tao.study.bean.Subject;
+import com.tao.study.mapper.SubjectMapper;
+import com.tao.study.pojo.SubjectResult;
+import com.tao.study.service.SubjectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tk.mybatis.mapper.entity.Example;
 
 import java.util.ArrayList;
 import java.util.List;
+
 
 /**
  * @Author tao

@@ -1,4 +1,4 @@
-package com.tao.study.es;
+package com.tao.question.es;
 
 import lombok.Data;
 

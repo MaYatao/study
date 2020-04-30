@@ -46,7 +46,6 @@ public class CommentController {
            map.put("sentTime",comment.getCommentTime());
            map.put("title","对你进行了的评论");
            map.put("contentId",comment.getContentId());
-           map.put("courseId",comment.getCourseId());
            map.put("type",1);
            rabbitTemplate.convertAndSend("matao.comment.queue",map);
            return AIResult.ok("发布成功");

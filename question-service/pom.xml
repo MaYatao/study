@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>question</artifactId>
+    <artifactId>question-service</artifactId>
     <dependencies>
         <!-- Mq配置-->
         <dependency>

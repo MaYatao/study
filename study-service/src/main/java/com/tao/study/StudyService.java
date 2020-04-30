@@ -28,7 +28,7 @@ public class StudyService {
 
     public static void main(String[] args) {
 
-        SpringApplication.run(AIManageService.class, args);
+        SpringApplication.run(StudyService.class, args);
 
     }
 

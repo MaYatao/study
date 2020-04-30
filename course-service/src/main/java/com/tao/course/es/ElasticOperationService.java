@@ -1,4 +1,4 @@
-package com.tao.study.es;
+package com.tao.course.es;
 
 import com.tao.common.utils.JsonUtils;
 import org.elasticsearch.action.admin.indices.create.CreateIndexRequestBuilder;

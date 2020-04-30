@@ -23,7 +23,7 @@ import javax.servlet.MultipartConfigElement;
 @MapperScan("com.tao.*.mapper")
 @Import(FdfsClientConfig.class)
 @EnableMBeanExport(registration = RegistrationPolicy.IGNORE_EXISTING)
-public class AIManageService {
+public class ManageService {
     @Bean
     public MultipartConfigElement multipartConfigElement() {
         MultipartConfigFactory factory = new MultipartConfigFactory();
@@ -36,7 +36,7 @@ public class AIManageService {
 
     public static void main(String[] args) {
 
-        SpringApplication.run(AIManageService.class, args);
+        SpringApplication.run(ManageService.class, args);
 
     }
 

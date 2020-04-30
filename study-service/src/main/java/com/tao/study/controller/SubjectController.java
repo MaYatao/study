@@ -2,8 +2,8 @@ package com.tao.study.controller;
 
 
 import com.tao.common.utils.AIResult;
-import com.tao.manage.pojo.SubjectResult;
-import com.tao.manage.service.SubjectService;
+import com.tao.study.pojo.SubjectResult;
+import com.tao.study.service.SubjectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

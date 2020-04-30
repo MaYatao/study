@@ -1,4 +1,4 @@
-package com.tao.study.es;
+package com.tao.course.es;
 
 import org.elasticsearch.client.Client;
 import org.elasticsearch.client.transport.TransportClient;

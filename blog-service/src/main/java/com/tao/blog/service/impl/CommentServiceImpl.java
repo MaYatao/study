@@ -49,9 +49,6 @@ public class CommentServiceImpl implements CommentService {
         if(comment.getContentId()!=null) {
             recordHistory.setContentId(comment.getContentId());
         }
-        if(comment.getCourseId()!=null) {
-            recordHistory.setCommentId(comment.getCourseId());
-        }
         recordHistoryMapper.insert(recordHistory);
         commentMapper.insert(comment);
     }

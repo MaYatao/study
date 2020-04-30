@@ -13,26 +13,6 @@
 
     <dependencies>
 
-        <!--ES客户端jar-->
-        <!-- 强制声明ES版本 -->
-        <dependency>
-            <groupId>org.elasticsearch</groupId>
-            <artifactId>elasticsearch</artifactId>
-            <version>${elasticsearch.version}</version>
-        </dependency>
-
-        <!-- 因为要采用java编码直接操作ES所以需要引入 -->
-        <dependency>
-            <groupId>org.elasticsearch.client</groupId>
-            <artifactId>transport</artifactId>
-            <version>${elasticsearch.version}</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>commons-logging</groupId>
-                    <artifactId>commons-logging</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
 
         <!-- Mq配置-->
         <dependency>
@@ -114,7 +94,7 @@
         </dependency>
         <dependency>
             <groupId>com.tao</groupId>
-            <artifactId>user</artifactId>
+            <artifactId>user-service</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
         <dependency>

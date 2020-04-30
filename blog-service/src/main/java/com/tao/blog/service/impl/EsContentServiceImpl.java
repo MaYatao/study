@@ -2,9 +2,10 @@ package com.tao.blog.service.impl;
 
 import com.tao.blog.bean.Content;
 import com.tao.blog.service.EsBlogService;
-import com.tao.study.es.ElasticOperationService;
-import com.tao.study.es.SearchParam;
 
+
+import com.tao.blog.es.ElasticOperationService;
+import com.tao.blog.es.SearchParam;
 import org.apache.commons.collections.CollectionUtils;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +17,8 @@ import java.util.List;
 public class EsContentServiceImpl implements EsBlogService, InitializingBean {
 
     @Autowired
-    private ElasticOperationService elasticOperationService;
+    private
+    ElasticOperationService elasticOperationService;
     
     private String index = "blog-api";
     
