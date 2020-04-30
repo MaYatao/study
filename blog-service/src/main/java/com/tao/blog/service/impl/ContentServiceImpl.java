@@ -122,7 +122,7 @@ public class ContentServiceImpl implements ContentService {
             blogResult.setHeadImage(u.getHeadImage());
             blogResult.setCreateTime(c.getCreateTime());
             blogResult.setType(c.getType());
-            blogResult.setKnowledges(c.getKnowledges());
+            blogResult.setKnowledges1(c.getKnowledges1());
             blogResult.setComment(c.isComment());
             blogResult.setComments(c.getComments());
             blogResult.setStatus(c.getStatus());
@@ -159,7 +159,7 @@ public class ContentServiceImpl implements ContentService {
             blogResult.setCreateTime(c.getCreateTime());
             blogResult.setTopic(c.getTopic());
             blogResult.setType(c.getType());
-            blogResult.setKnowledges(c.getKnowledges());
+            blogResult.setKnowledges1(c.getKnowledges1());
             blogResult.setComment(c.isComment());
             blogResult.setComments(c.getComments());
             blogResult.setStatus(c.getStatus());

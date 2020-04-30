@@ -34,8 +34,16 @@ public class BlogResult {
     private boolean comment;
 
     private int type;
-    //知识点
-    private Integer knowledges;
+    private Integer knowledges1;
+    /**
+     * 知识点
+     */
+    private Integer knowledges2;
+
+    /**
+     * 知识点
+     */
+    private Integer knowledges3;
 
 
 }
