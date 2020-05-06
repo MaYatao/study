@@ -27,8 +27,8 @@ public class RecordTests {
     private   int      trueNum;
     @Column(name="total_num" ,columnDefinition="int default 0")
     private  int totalNum;
-    @Column(name="ststus" ,columnDefinition="int default 0")
-    private  int ststus;
+    @Column(name="degree" ,columnDefinition="int default 0")
+    private  int degree;
     private  String    date;
     private  String  spendTime;
 

@@ -20,6 +20,6 @@ public class RecordCourse {
     //课程名
     private   Integer   courseId;
     //学习总时间
-    private   String  totleTime;
+    private   String  studyTime;
 
 }

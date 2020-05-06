@@ -45,7 +45,7 @@ public class TestsServiceImpl implements TestsService {
         Tests tests=testsMapper.selectByPrimaryKey(testId);
         TestResult testResult = new TestResult();
         testResult.setCount(tests.getCount());
-        testResult.setStatus(tests.getStatus());
+        testResult.setDegree(tests.getDegree());
         testResult.setOther(tests.getOther());
         testResult.setTestId(tests.getTestId());
         testResult.setTitle(tests.getTitle());
@@ -182,7 +182,7 @@ public class TestsServiceImpl implements TestsService {
         String dateString = formatter.format(currentTime);
         tests.setCreateTime(dateString);
         tests.setCount(questionList.size());
-        tests.setStatus(degree);
+        tests.setDegree(degree);
         tests.setUserId(userId);
         tests.setTitle("专项练习");
         String choice = "";

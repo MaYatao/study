@@ -26,7 +26,5 @@ public class Image {  //公告消息表
     private  Boolean status; //
     @Column(name="publish_time")
     private  String publishTime;
-    @Column(name="delete_time")
-    private  String deleteTime;
 
 }

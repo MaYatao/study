@@ -37,7 +37,7 @@ public class User {
     /**
      * 方向
      */
-    private String expectation;
+    private Integer direction;
     /**
      * 个人简介
      */

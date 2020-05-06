@@ -64,12 +64,11 @@ public class Tests {
     /**
      * 试题难度
      */
-    @Column(name = "status", columnDefinition = "int default 0")
-    private int status;
+    @Column(name = "degree", columnDefinition = "int default 0")
+    private int degree;
     /**
      * 备注
      */
     private String other;
-    @Column(name = "done", columnDefinition = "int default 0")
-    private Integer done;
+    private Boolean done;
 }

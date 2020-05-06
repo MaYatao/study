@@ -12,7 +12,7 @@ public class TestResult {
     private int blankScore;
     private int socre;
     private int count;
-    private  int status;
+    private  int degree;
     private String other;
 
     private List<Question> choiceQuestios;

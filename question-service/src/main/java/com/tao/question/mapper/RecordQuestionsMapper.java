@@ -1,6 +1,6 @@
 package com.tao.question.mapper;
 
-import com.tao.question.pojo.RecordQuestions;
+import com.tao.question.bean.RecordQuestions;
 import tk.mybatis.mapper.common.Mapper;
 
 /**

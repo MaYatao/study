@@ -28,6 +28,7 @@ zuul:
     user-service: /user/**  #用户微服务
     question-service: /question/** #学习微服务
     course-service: /course/** #学习微服务
+    study-service: /study/** #学习微服务
     manage-service: /manage/** #学习微服务
   ignored-services:
     - upload-service # 忽略upload-service服务

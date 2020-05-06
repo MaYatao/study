@@ -15,7 +15,7 @@ import javax.persistence.*;
 public class RecordHistory {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int recordHistoryId;
+    private int brId;
     /**
      * 点赞评论者
      */

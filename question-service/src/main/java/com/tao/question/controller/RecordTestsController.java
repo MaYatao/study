@@ -35,7 +35,7 @@ public class RecordTestsController    {
             List<Question> questionList = (List<Question>) map.get("questionList");
             Integer testId = (Integer) map.get("testId");
             Integer userId= (Integer) map.get("userId");
-            Integer status= (Integer) map.get("status");
+            Integer degree= (Integer) map.get("status");
             String title= (String) map.get("title");
             String spendTime= (String) map.get("spendTime");
             RecordTests recordTests =new RecordTests();
@@ -46,7 +46,7 @@ public class RecordTestsController    {
             recordTests.setTestId(testId);
             recordTests.setSpendTime(spendTime);
             recordTests.setUserId(userId);
-            recordTests.setStstus(status);
+            recordTests.setDegree(degree);
             recordTests.setTotalNum(questionList.size());
             recordTests.setTitle(title);
            Map<String, Integer> result= recordQuertionsService.saveQuestions(map);

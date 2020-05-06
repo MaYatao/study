@@ -4,7 +4,7 @@ import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.tao.question.bean.Question;
 import com.tao.question.pojo.QuestionResult;
-import com.tao.question.pojo.RecordQuestions;
+import com.tao.question.bean.RecordQuestions;
 import com.tao.question.mapper.QuestionsMapper;
 import com.tao.question.mapper.RecordQuestionsMapper;
 import com.tao.question.service.RecordQuertionsService;
