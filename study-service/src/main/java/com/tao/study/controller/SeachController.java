@@ -9,24 +9,34 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Date;
 import java.util.List;
+import java.util.Random;
 
-@Controller
-@RequestMapping("search")
+@RestController
 public class SeachController {
 
     @Autowired
     private SeachService seachService;
 
-    @RequestMapping(value = "/get")
+    @RequestMapping(value = "/add")
     @ResponseBody
-    public AIResult getSeach(String content,Integer userId) {
+    public AIResult getSeach() {
         try {
-            List<SearchParam> searchParamList = seachService.queryByUserName(content);
+            SearchParam searchParam=new SearchParam();
+            searchParam.setBasics("O基础");
+            searchParam.setContent("Java是最好的语言");
+            searchParam.setCreateTime("2010/2/3");
+            searchParam.setDescription("hhahsd表达方式能尽快流芳百世的距离发表了多少");
+            searchParam.setId("000"+new Random(100));
+            searchParam.setTitle("Java");
+            searchParam.setType(new Random(3).nextInt());
+            seachService.addUser(searchParam);
+            List<SearchParam> searchParamList = seachService.queryByUserName("Java");
             return AIResult.ok(searchParamList);
-        } catch (Exception e) {
-
+        } catch (Exception e) { e.printStackTrace();
             return AIResult.build(500, e.getMessage());
         }
 

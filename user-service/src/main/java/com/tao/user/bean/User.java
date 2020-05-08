@@ -27,7 +27,7 @@ public class User {
     private String birthday;
     private String joinDay;
     private String headImage;
-    private boolean sex;
+    private Boolean sex ;
     private String school;
     /**
      * 身份 0学生，1教师，2管理员

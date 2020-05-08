@@ -86,7 +86,7 @@ public class TestsServiceImpl implements TestsService {
         for (Tests tests : testsList) {
             TestResult testResult = new TestResult();
             testResult.setCount(tests.getCount());
-            testResult.setStatus(tests.getStatus());
+            testResult.setDegree(tests.getDegree());
             testResult.setOther(tests.getOther());
             testResult.setTestId(tests.getTestId());
             testResult.setTitle(tests.getTitle());
@@ -127,7 +127,7 @@ public class TestsServiceImpl implements TestsService {
         for (Tests tests : testsList) {
             TestResult testResult = new TestResult();
             testResult.setCount(tests.getCount());
-            testResult.setStatus(tests.getStatus());
+            testResult.setDegree(tests.getDegree());
             testResult.setOther(tests.getOther());
             testResult.setTestId(tests.getTestId());
             testResult.setTitle(tests.getTitle());
