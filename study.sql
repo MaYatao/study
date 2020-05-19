@@ -11,7 +11,7 @@
  Target Server Version : 50712
  File Encoding         : 65001
 
- Date: 15/04/2020 22:01:51
+ Date: 19/05/2020 08:43:32
 */
 
 SET NAMES utf8mb4;
@@ -25,16 +25,39 @@ CREATE TABLE `tb_announce`  (
   `announce_id` int(11) NOT NULL AUTO_INCREMENT,
   `content` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `sent_time` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `to_user` int(11) NULL DEFAULT 0,
   `title` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `to_user` int(11) NULL DEFAULT 0,
   PRIMARY KEY (`announce_id`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 7 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = MyISAM AUTO_INCREMENT = 2 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of tb_announce
 -- ----------------------------
-INSERT INTO `tb_announce` VALUES (6, '撒旦', '2020-03-21 21:56:21', 0, NULL);
-INSERT INTO `tb_announce` VALUES (2, '是的', '2020-03-20 23:11:28', 0, NULL);
+INSERT INTO `tb_announce` VALUES (1, 'sss', '2020-05-08 22:00:27', 'sss', 0);
+
+-- ----------------------------
+-- Table structure for tb_blog_record
+-- ----------------------------
+DROP TABLE IF EXISTS `tb_blog_record`;
+CREATE TABLE `tb_blog_record`  (
+  `br_id` int(11) NOT NULL AUTO_INCREMENT,
+  `aggree_time` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `comment_id` int(11) NULL DEFAULT NULL,
+  `comment_time` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `content_id` int(11) NULL DEFAULT NULL,
+  `from_user` int(11) NULL DEFAULT NULL,
+  `to_user` int(11) NULL DEFAULT NULL,
+  PRIMARY KEY (`br_id`) USING BTREE
+) ENGINE = MyISAM AUTO_INCREMENT = 6 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of tb_blog_record
+-- ----------------------------
+INSERT INTO `tb_blog_record` VALUES (1, NULL, 0, NULL, 1, 1, 0);
+INSERT INTO `tb_blog_record` VALUES (2, NULL, 0, NULL, 1, 1, 0);
+INSERT INTO `tb_blog_record` VALUES (3, NULL, 0, '2020-05-14 20:14:11', 1, 1, 1);
+INSERT INTO `tb_blog_record` VALUES (4, NULL, 0, '2020-05-14 20:14:16', 1, 1, 1);
+INSERT INTO `tb_blog_record` VALUES (5, NULL, 0, NULL, 2, 1, 0);
 
 -- ----------------------------
 -- Table structure for tb_comment
@@ -43,32 +66,20 @@ DROP TABLE IF EXISTS `tb_comment`;
 CREATE TABLE `tb_comment`  (
   `comment_id` int(11) NOT NULL AUTO_INCREMENT,
   `agree` int(11) NULL DEFAULT 0,
-  `comment_time` datetime(0) NULL DEFAULT NULL,
+  `comment_time` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `content` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `content_id` int(11) NULL DEFAULT NULL,
   `from_user` int(11) NULL DEFAULT NULL,
   `parent_id` int(11) NULL DEFAULT NULL,
   `to_user` int(11) NULL DEFAULT NULL,
-  `course_id` int(11) NULL DEFAULT NULL,
   PRIMARY KEY (`comment_id`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 26 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = MyISAM AUTO_INCREMENT = 3 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of tb_comment
 -- ----------------------------
-INSERT INTO `tb_comment` VALUES (13, NULL, '2020-02-19 19:32:09', '<p>士大夫地方</p>', 2, 1, NULL, 1, NULL);
-INSERT INTO `tb_comment` VALUES (14, NULL, '2020-03-18 21:36:21', '<p>慷慨解囊</p>', NULL, 1, NULL, NULL, 14);
-INSERT INTO `tb_comment` VALUES (15, NULL, '2020-03-18 21:36:30', '<p>反对反对</p>', NULL, 1, 14, 1, 14);
-INSERT INTO `tb_comment` VALUES (16, NULL, '2020-03-18 21:36:40', '<p>现场出现</p>', NULL, 1, 14, 1, 14);
-INSERT INTO `tb_comment` VALUES (17, NULL, '2020-03-18 21:36:47', '<p>撒大都市</p>', NULL, 1, NULL, NULL, 14);
-INSERT INTO `tb_comment` VALUES (18, NULL, '2020-03-20 19:31:19', '<p>撒大都市</p>', 3, 1, NULL, 1, NULL);
-INSERT INTO `tb_comment` VALUES (19, NULL, '2020-03-21 20:31:03', '<p>撒旦到</p>', NULL, 1, NULL, NULL, 10);
-INSERT INTO `tb_comment` VALUES (20, NULL, '2020-03-21 20:34:07', '<p>撒大苏打</p>', NULL, 1, 19, 1, 10);
-INSERT INTO `tb_comment` VALUES (21, NULL, '2020-03-21 20:43:15', '<p>啊是大多数v阿斯蒂芬v</p>', NULL, 1, NULL, NULL, 14);
-INSERT INTO `tb_comment` VALUES (22, NULL, '2020-03-21 20:59:45', '<p>是顶顶顶顶顶</p>', NULL, 1, NULL, NULL, 14);
-INSERT INTO `tb_comment` VALUES (23, NULL, '2020-03-21 21:00:36', '<p>撒旦</p>', NULL, 1, NULL, NULL, 14);
-INSERT INTO `tb_comment` VALUES (24, NULL, '2020-03-21 21:58:54', '<p>assssv </p>', NULL, 1, NULL, NULL, 14);
-INSERT INTO `tb_comment` VALUES (25, NULL, '2020-03-21 22:02:19', '<p>sdds</p>', NULL, 1, 14, 1, 14);
+INSERT INTO `tb_comment` VALUES (1, NULL, '2020-05-14 20:14:11', '<p>sas </p>', 1, 1, NULL, 1);
+INSERT INTO `tb_comment` VALUES (2, NULL, '2020-05-14 20:14:16', '<p>dd </p>', 1, 1, 1, 1);
 
 -- ----------------------------
 -- Table structure for tb_content
@@ -77,25 +88,28 @@ DROP TABLE IF EXISTS `tb_content`;
 CREATE TABLE `tb_content`  (
   `content_id` int(11) NOT NULL AUTO_INCREMENT,
   `agree` int(11) NULL DEFAULT 0,
-  `collection` int(11) NULL DEFAULT 0,
+  `is_comment` bit(1) NULL DEFAULT NULL,
   `comments` int(11) NULL DEFAULT 0,
   `content` text CHARACTER SET utf8 COLLATE utf8_general_ci NULL,
-  `content_time` datetime(0) NULL DEFAULT NULL,
-  `flag` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `create_time` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `knowledges1` int(11) NULL DEFAULT NULL,
+  `knowledges2` int(11) NULL DEFAULT NULL,
+  `knowledges3` int(11) NULL DEFAULT NULL,
   `status` int(11) NULL DEFAULT 0,
   `title` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `topic` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `type` int(11) NULL DEFAULT 0,
   `user_id` int(11) NULL DEFAULT NULL,
   `views` int(11) NULL DEFAULT 0,
-  `comment` bit(1) NULL DEFAULT NULL,
   PRIMARY KEY (`content_id`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 7 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = MyISAM AUTO_INCREMENT = 4 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of tb_content
 -- ----------------------------
-INSERT INTO `tb_content` VALUES (3, 0, 0, 0, '<p>啊的方法烦烦烦烦烦烦v</p>', '2020-02-19 22:00:50', '计算机网络', 0, '测试2', 1, 2, b'1');
-INSERT INTO `tb_content` VALUES (2, 0, 0, 0, '<p>阿凡达vv</p>', '2020-02-19 22:11:54', 'Java', 0, '测试1 ', 1, 1, b'1');
-INSERT INTO `tb_content` VALUES (6, 0, 0, 0, '<p>嘿嘿</p>', '2020-04-10 20:49:00', 'Java,标签二,标签三', 0, '哈哈哈', 1, 0, b'1');
+INSERT INTO `tb_content` VALUES (1, 0, b'1', 0, '<p>11</p>', '2020-05-08 17:08:14', NULL, NULL, NULL, 0, '11', NULL, NULL, 1, 2);
+INSERT INTO `tb_content` VALUES (2, 0, b'1', 0, '<p>xzzzzzzzzzzzzzzz</p>', '2020-05-08 22:07:09', NULL, NULL, NULL, 0, 'zxxz', NULL, NULL, 1, 1);
+INSERT INTO `tb_content` VALUES (3, 0, b'1', 0, '<p>存储</p>', '2020-05-14 19:45:21', NULL, NULL, NULL, 1, '现象下', NULL, NULL, 1, 0);
 
 -- ----------------------------
 -- Table structure for tb_couerses
@@ -104,51 +118,33 @@ DROP TABLE IF EXISTS `tb_couerses`;
 CREATE TABLE `tb_couerses`  (
   `course_id` int(11) NOT NULL AUTO_INCREMENT,
   `basics` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `create_time` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `degree` int(11) NULL DEFAULT 0,
   `description` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `direction` int(11) NULL DEFAULT NULL,
   `goal` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `knowledges` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `image_url` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `knowledges1` int(11) NULL DEFAULT NULL,
+  `knowledges2` int(11) NULL DEFAULT NULL,
+  `knowledges3` int(11) NULL DEFAULT NULL,
   `subject` int(11) NULL DEFAULT NULL,
   `title` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `upload_time` datetime(0) NULL DEFAULT NULL,
   `url` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `user_id` int(11) NULL DEFAULT NULL,
-  `image_url` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `source` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`course_id`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 15 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
-
--- ----------------------------
--- Records of tb_couerses
--- ----------------------------
-INSERT INTO `tb_couerses` VALUES (10, '0基础', 2, '这是测试', 2, '大佬', 'Java', 27, '测试题1', '2020-03-16 14:52:58', 'http://192.168.183.130/group1/M00/00/00/wKi3gl5vIiGAElRHAABUA67-KI8341.mp4', 1, 'http://192.168.183.130/group1/M00/00/00/wKi3gl5vIkSARFjvAABUA67-KI8728.jpg', NULL);
-INSERT INTO `tb_couerses` VALUES (14, '哈哈哈', 3, '无所谓', 1, '嘻嘻嘻', 'Java', 12, '测试111', '2020-03-18 20:49:11', 'http://192.168.183.130/group1/M00/00/00/wKi3gl5yGG6ANVS_AJVu01nQgdI788.mp4', 1, 'http://192.168.183.130/group1/M00/00/00/wKi3gl5yGLOAJhhvAABUA67-KI8792.jpg', 'http://192.168.183.130/group1/M00/00/00/wKi3gl5yGMGAX8zLAABUA67-KI8740.jpg');
-INSERT INTO `tb_couerses` VALUES (13, 'fdf', 3, 'dfs f', 3, 'f豆瓣', '较大', 43, 'hahah ', '2020-03-16 15:22:19', 'http://192.168.183.130/group1/M00/00/00/wKi3gl5vKReAEphPAABUA67-KI8245.mp4', 1, 'http://192.168.183.130/group1/M00/00/00/wKi3gl5vKR2AZOGeAABUA67-KI8738.jpg', 'http://192.168.183.130/group1/M00/00/00/wKi3gl5vKSGADMXjAACJTjs7_vA266.jpg');
-
--- ----------------------------
--- Table structure for tb_direction
--- ----------------------------
-DROP TABLE IF EXISTS `tb_direction`;
-CREATE TABLE `tb_direction`  (
-  `direction_id` int(11) NOT NULL AUTO_INCREMENT,
-  `direction` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `skill_id` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  PRIMARY KEY (`direction_id`) USING BTREE
 ) ENGINE = MyISAM AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
--- Table structure for tb_fans
+-- Table structure for tb_course_record_
 -- ----------------------------
-DROP TABLE IF EXISTS `tb_fans`;
-CREATE TABLE `tb_fans`  (
-  `fans_id` int(11) NOT NULL AUTO_INCREMENT,
-  `fans` int(11) NOT NULL,
-  `follwer_time` datetime(0) NULL DEFAULT NULL,
-  `follwoee` int(11) NOT NULL,
-  `type` int(11) NOT NULL,
-  PRIMARY KEY (`fans_id`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Fixed;
+DROP TABLE IF EXISTS `tb_course_record_`;
+CREATE TABLE `tb_course_record_`  (
+  `rcid` int(11) NOT NULL AUTO_INCREMENT,
+  `course_id` int(11) NULL DEFAULT NULL,
+  `study_time` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `user_id` int(11) NULL DEFAULT NULL,
+  PRIMARY KEY (`rcid`) USING BTREE
+) ENGINE = MyISAM AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for tb_image
@@ -156,19 +152,74 @@ CREATE TABLE `tb_fans`  (
 DROP TABLE IF EXISTS `tb_image`;
 CREATE TABLE `tb_image`  (
   `image_id` int(11) NOT NULL AUTO_INCREMENT,
-  `delete_time` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `info` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `link` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `publish_time` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `status` bit(1) NULL DEFAULT NULL,
   `url` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`image_id`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 4 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = MyISAM AUTO_INCREMENT = 2 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of tb_image
 -- ----------------------------
-INSERT INTO `tb_image` VALUES (2, NULL, '是的', 'www.baidu.com', '2020-03-20 23:23:30', NULL, 'http://192.168.183.130/group1/M00/00/00/wKi3gl503--AJRSrAABUA67-KI8066.jpg');
+INSERT INTO `tb_image` VALUES (1, '存储', 'http://www.baidu.com', '2020-05-08 22:00:12', NULL, 'http://192.168.183.130/group1/M00/00/00/wKi3gl61ZdSASGsGAACJTjs7_vA873.jpg');
+
+-- ----------------------------
+-- Table structure for tb_knowledge_record_
+-- ----------------------------
+DROP TABLE IF EXISTS `tb_knowledge_record_`;
+CREATE TABLE `tb_knowledge_record_`  (
+  `rkid` int(11) NOT NULL AUTO_INCREMENT,
+  `knowledge_id` int(11) NULL DEFAULT NULL,
+  `user_id` int(11) NULL DEFAULT NULL,
+  PRIMARY KEY (`rkid`) USING BTREE
+) ENGINE = MyISAM AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Fixed;
+
+-- ----------------------------
+-- Table structure for tb_knowledges
+-- ----------------------------
+DROP TABLE IF EXISTS `tb_knowledges`;
+CREATE TABLE `tb_knowledges`  (
+  `knowledge_id` int(11) NOT NULL AUTO_INCREMENT,
+  `next` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `previous` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `subject_id` int(11) NULL DEFAULT NULL,
+  `title` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  PRIMARY KEY (`knowledge_id`) USING BTREE
+) ENGINE = MyISAM AUTO_INCREMENT = 29 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of tb_knowledges
+-- ----------------------------
+INSERT INTO `tb_knowledges` VALUES (1, NULL, NULL, 27, '基础');
+INSERT INTO `tb_knowledges` VALUES (2, NULL, NULL, 27, '多线程');
+INSERT INTO `tb_knowledges` VALUES (3, NULL, NULL, 27, 'JVM');
+INSERT INTO `tb_knowledges` VALUES (4, NULL, NULL, 27, '集合');
+INSERT INTO `tb_knowledges` VALUES (5, NULL, NULL, 27, 'IO');
+INSERT INTO `tb_knowledges` VALUES (6, NULL, NULL, 27, '网络编程');
+INSERT INTO `tb_knowledges` VALUES (7, NULL, '1', 27, '封装');
+INSERT INTO `tb_knowledges` VALUES (8, NULL, '1', 27, '继承');
+INSERT INTO `tb_knowledges` VALUES (9, NULL, '1', 27, '多态');
+INSERT INTO `tb_knowledges` VALUES (10, NULL, '1', 27, '重写');
+INSERT INTO `tb_knowledges` VALUES (11, NULL, '1', 27, '重载');
+INSERT INTO `tb_knowledges` VALUES (12, NULL, '1', 27, '数据类型');
+INSERT INTO `tb_knowledges` VALUES (13, NULL, '1', 27, '接口');
+INSERT INTO `tb_knowledges` VALUES (14, NULL, '1', 27, '继承');
+INSERT INTO `tb_knowledges` VALUES (15, NULL, '1', 27, '类');
+INSERT INTO `tb_knowledges` VALUES (16, NULL, '2', 27, '线程创建');
+INSERT INTO `tb_knowledges` VALUES (17, NULL, '2', 27, '同步');
+INSERT INTO `tb_knowledges` VALUES (18, NULL, '2', 27, '锁');
+INSERT INTO `tb_knowledges` VALUES (19, NULL, '2', 27, '线程池');
+INSERT INTO `tb_knowledges` VALUES (20, NULL, '3', 27, 'GC');
+INSERT INTO `tb_knowledges` VALUES (21, NULL, '4', 27, 'Map');
+INSERT INTO `tb_knowledges` VALUES (22, NULL, '4', 27, 'Set');
+INSERT INTO `tb_knowledges` VALUES (23, NULL, '4', 27, 'List');
+INSERT INTO `tb_knowledges` VALUES (24, NULL, '4', 27, 'Queue');
+INSERT INTO `tb_knowledges` VALUES (25, NULL, '5', 27, '字节流');
+INSERT INTO `tb_knowledges` VALUES (26, NULL, '5', 27, '字符流');
+INSERT INTO `tb_knowledges` VALUES (27, '', '21', 27, 'HashMap');
+INSERT INTO `tb_knowledges` VALUES (28, NULL, '21', 27, 'CurrentHashMp');
 
 -- ----------------------------
 -- Table structure for tb_message
@@ -177,36 +228,23 @@ DROP TABLE IF EXISTS `tb_message`;
 CREATE TABLE `tb_message`  (
   `message_id` int(11) NOT NULL AUTO_INCREMENT,
   `content` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `from_user` int(11) NULL DEFAULT NULL,
-  `sent_time` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `status` bit(1) NULL DEFAULT NULL,
-  `to_user` int(11) NULL DEFAULT NULL,
-  `type` int(11) NOT NULL,
   `content_id` int(11) NULL DEFAULT NULL,
   `course_id` int(11) NULL DEFAULT NULL,
+  `from_user` int(11) NULL DEFAULT NULL,
+  `sent_time` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `status` tinyint(1) NULL DEFAULT 0,
   `title` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `to_user` int(11) NULL DEFAULT NULL,
+  `type` int(11) NULL DEFAULT 0,
   PRIMARY KEY (`message_id`) USING BTREE
 ) ENGINE = MyISAM AUTO_INCREMENT = 4 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of tb_message
 -- ----------------------------
-INSERT INTO `tb_message` VALUES (1, '撒旦', -1, '2020-03-21 21:56:21', b'0', 1, 0, NULL, NULL, NULL);
-INSERT INTO `tb_message` VALUES (2, '<p>assssv </p>', 1, '2020-03-21 21:58:54', b'0', 1, 1, NULL, NULL, NULL);
-INSERT INTO `tb_message` VALUES (3, '<p>sdds</p>', 1, '2020-03-21 22:02:19', b'0', 1, 1, NULL, NULL, NULL);
-
--- ----------------------------
--- Table structure for tb_mkdir
--- ----------------------------
-DROP TABLE IF EXISTS `tb_mkdir`;
-CREATE TABLE `tb_mkdir`  (
-  `mkdir_id` int(11) NOT NULL AUTO_INCREMENT,
-  `chepter_id` int(11) NOT NULL,
-  `cource_id` int(11) NOT NULL,
-  `creat_time` datetime(0) NULL DEFAULT NULL,
-  `title` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  PRIMARY KEY (`mkdir_id`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+INSERT INTO `tb_message` VALUES (1, 'sss', NULL, NULL, -1, '2020-05-08 22:00:27', 1, 'sss', 1, 0);
+INSERT INTO `tb_message` VALUES (2, NULL, 1, NULL, 1, '2020-05-14 20:14:11', 0, '对你进行了的评论', 1, 1);
+INSERT INTO `tb_message` VALUES (3, NULL, 1, NULL, 1, '2020-05-14 20:14:16', 0, '对你进行了的评论', 1, 1);
 
 -- ----------------------------
 -- Table structure for tb_question
@@ -217,7 +255,7 @@ CREATE TABLE `tb_question`  (
   `analysis` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `answer` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `content` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `create_time` datetime(0) NULL DEFAULT NULL,
+  `create_time` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `degree` int(11) NULL DEFAULT 0,
   `direction` int(11) NULL DEFAULT NULL,
   `knowledge` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
@@ -225,27 +263,9 @@ CREATE TABLE `tb_question`  (
   `score` int(11) NULL DEFAULT 0,
   `subject` int(11) NULL DEFAULT NULL,
   `type` int(11) NULL DEFAULT NULL,
-  `uid` int(11) NULL DEFAULT NULL,
+  `uid` int(11) NULL DEFAULT 0,
   PRIMARY KEY (`qid`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 3 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
-
--- ----------------------------
--- Records of tb_question
--- ----------------------------
-INSERT INTO `tb_question` VALUES (1, '<p>就是这样</p>', '1', '<p>我是怎么笑的</p>', '2020-03-11 17:16:47', 3, 2, 'Java,标签二,标签三', '哈哈,嘻嘻嘻,呵呵呵', 5, 27, 1, 1);
-INSERT INTO `tb_question` VALUES (2, '<p>阿萨飒</p>', '1，2，0', '<p>人是怎么笑的</p>', '2020-03-11 17:17:55', 3, 2, 'Java,标签二,标签三', '哈,嘻,呵', 55, 27, 2, NULL);
-
--- ----------------------------
--- Table structure for tb_record_course
--- ----------------------------
-DROP TABLE IF EXISTS `tb_record_course`;
-CREATE TABLE `tb_record_course`  (
-  `rcid` int(11) NOT NULL AUTO_INCREMENT,
-  `course_id` int(11) NOT NULL,
-  `totle_time` datetime(0) NULL DEFAULT NULL,
-  `user_id` int(11) NOT NULL,
-  PRIMARY KEY (`rcid`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Fixed;
+) ENGINE = MyISAM AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for tb_record_daily
@@ -253,99 +273,12 @@ CREATE TABLE `tb_record_course`  (
 DROP TABLE IF EXISTS `tb_record_daily`;
 CREATE TABLE `tb_record_daily`  (
   `rdid` int(11) NOT NULL AUTO_INCREMENT,
-  `login_time` datetime(0) NULL DEFAULT NULL,
-  `out_time` datetime(0) NULL DEFAULT NULL,
+  `knowledges1` int(11) NULL DEFAULT NULL,
+  `knowledges2` int(11) NULL DEFAULT NULL,
+  `knowledges3` int(11) NULL DEFAULT NULL,
   `user_id` int(11) NOT NULL,
   PRIMARY KEY (`rdid`) USING BTREE
 ) ENGINE = MyISAM AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Fixed;
-
--- ----------------------------
--- Table structure for tb_record_history
--- ----------------------------
-DROP TABLE IF EXISTS `tb_record_history`;
-CREATE TABLE `tb_record_history`  (
-  `record_history_id` int(11) NOT NULL AUTO_INCREMENT,
-  `aggree_time` datetime(0) NULL DEFAULT NULL,
-  `collection_ime` datetime(0) NULL DEFAULT NULL,
-  `comment_id` int(11) NULL DEFAULT NULL,
-  `comment_time` datetime(0) NULL DEFAULT NULL,
-  `content_id` int(11) NULL DEFAULT NULL,
-  `from_user` int(11) NULL DEFAULT NULL,
-  `to_user` int(11) NULL DEFAULT NULL,
-  `view_time` datetime(0) NULL DEFAULT NULL,
-  PRIMARY KEY (`record_history_id`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 68 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Fixed;
-
--- ----------------------------
--- Records of tb_record_history
--- ----------------------------
-INSERT INTO `tb_record_history` VALUES (1, NULL, NULL, 0, NULL, 1, 1, 0, '2020-02-16 18:34:55');
-INSERT INTO `tb_record_history` VALUES (2, NULL, NULL, 0, '2020-02-16 18:35:00', 1, 1, 1, NULL);
-INSERT INTO `tb_record_history` VALUES (3, NULL, NULL, 0, '2020-02-16 18:35:08', 1, 1, 0, NULL);
-INSERT INTO `tb_record_history` VALUES (4, NULL, NULL, 0, NULL, 1, 1, 0, '2020-02-16 18:37:43');
-INSERT INTO `tb_record_history` VALUES (5, NULL, NULL, 0, NULL, 1, 1, 0, '2020-02-16 18:38:09');
-INSERT INTO `tb_record_history` VALUES (6, NULL, NULL, 0, NULL, 1, 1, 0, '2020-02-16 18:45:59');
-INSERT INTO `tb_record_history` VALUES (7, NULL, NULL, 0, NULL, 1, 1, 0, '2020-02-16 18:48:23');
-INSERT INTO `tb_record_history` VALUES (8, NULL, NULL, 0, NULL, 1, 1, 0, '2020-02-16 18:51:28');
-INSERT INTO `tb_record_history` VALUES (9, NULL, NULL, 0, NULL, 1, 1, 0, '2020-02-16 19:33:31');
-INSERT INTO `tb_record_history` VALUES (10, NULL, NULL, 0, NULL, 1, 1, 0, '2020-02-16 19:36:14');
-INSERT INTO `tb_record_history` VALUES (11, NULL, NULL, 0, NULL, 1, 1, 0, '2020-02-16 19:40:16');
-INSERT INTO `tb_record_history` VALUES (12, NULL, NULL, 0, NULL, 1, 1, 0, '2020-02-16 19:58:33');
-INSERT INTO `tb_record_history` VALUES (13, NULL, NULL, 0, '2020-02-16 20:12:12', 1, 1, 1, NULL);
-INSERT INTO `tb_record_history` VALUES (14, NULL, NULL, 0, NULL, 1, 1, 0, '2020-02-16 20:19:03');
-INSERT INTO `tb_record_history` VALUES (15, NULL, NULL, 0, NULL, 1, 1, 0, '2020-02-16 20:21:57');
-INSERT INTO `tb_record_history` VALUES (16, NULL, NULL, 0, '2020-02-16 20:22:09', 1, 1, 1, NULL);
-INSERT INTO `tb_record_history` VALUES (17, NULL, NULL, 0, '2020-02-16 20:22:28', 1, 1, 1, NULL);
-INSERT INTO `tb_record_history` VALUES (18, NULL, NULL, 0, NULL, 1, 1, 0, '2020-02-16 20:23:18');
-INSERT INTO `tb_record_history` VALUES (19, NULL, NULL, 0, '2020-02-16 20:23:34', 1, 1, 1, NULL);
-INSERT INTO `tb_record_history` VALUES (20, NULL, NULL, 0, NULL, 1, 1, 0, '2020-02-16 20:29:08');
-INSERT INTO `tb_record_history` VALUES (21, NULL, NULL, 0, '2020-02-16 20:31:15', 1, 1, 1, NULL);
-INSERT INTO `tb_record_history` VALUES (22, NULL, NULL, 0, '2020-02-16 20:31:34', 1, 1, 1, NULL);
-INSERT INTO `tb_record_history` VALUES (23, NULL, NULL, 0, '2020-02-16 20:34:21', 1, 1, 1, NULL);
-INSERT INTO `tb_record_history` VALUES (24, NULL, NULL, 0, NULL, 1, 1, 0, '2020-02-16 20:54:59');
-INSERT INTO `tb_record_history` VALUES (25, NULL, NULL, 0, NULL, 1, 1, 0, '2020-02-16 20:55:02');
-INSERT INTO `tb_record_history` VALUES (26, NULL, NULL, 0, NULL, 1, 1, 0, '2020-02-16 21:12:12');
-INSERT INTO `tb_record_history` VALUES (27, NULL, NULL, 0, NULL, 1, 1, 0, '2020-02-16 21:15:43');
-INSERT INTO `tb_record_history` VALUES (28, NULL, '2020-02-16 21:15:48', 0, NULL, 1, 1, 1, NULL);
-INSERT INTO `tb_record_history` VALUES (29, NULL, '2020-02-16 21:16:05', 0, NULL, 1, 1, 1, NULL);
-INSERT INTO `tb_record_history` VALUES (30, NULL, NULL, 0, NULL, 1, 1, 0, '2020-02-18 19:13:32');
-INSERT INTO `tb_record_history` VALUES (31, NULL, '2020-02-18 19:13:36', 0, NULL, 1, 1, 1, NULL);
-INSERT INTO `tb_record_history` VALUES (32, NULL, NULL, 0, NULL, 1, 1, 0, '2020-02-18 19:14:25');
-INSERT INTO `tb_record_history` VALUES (33, NULL, NULL, 0, NULL, 2, 1, 0, '2020-02-18 19:14:30');
-INSERT INTO `tb_record_history` VALUES (34, NULL, NULL, 0, NULL, 1, 1, 0, '2020-02-18 19:14:38');
-INSERT INTO `tb_record_history` VALUES (35, NULL, NULL, 0, NULL, 1, 1, 0, '2020-02-18 19:14:44');
-INSERT INTO `tb_record_history` VALUES (36, NULL, NULL, 0, NULL, 2, 1, 0, '2020-02-18 19:14:47');
-INSERT INTO `tb_record_history` VALUES (37, NULL, NULL, 0, NULL, 2, 1, 0, '2020-02-18 19:14:59');
-INSERT INTO `tb_record_history` VALUES (38, NULL, NULL, 0, NULL, 1, 1, 0, '2020-02-18 19:18:38');
-INSERT INTO `tb_record_history` VALUES (39, NULL, NULL, 0, NULL, 2, 1, 0, '2020-02-18 19:18:48');
-INSERT INTO `tb_record_history` VALUES (40, NULL, NULL, 0, '2020-02-18 19:18:55', 2, 1, 1, NULL);
-INSERT INTO `tb_record_history` VALUES (41, NULL, NULL, 0, '2020-02-18 19:19:00', 2, 1, 1, NULL);
-INSERT INTO `tb_record_history` VALUES (42, NULL, NULL, 0, '2020-02-18 19:19:04', 2, 1, 1, NULL);
-INSERT INTO `tb_record_history` VALUES (43, NULL, NULL, 0, NULL, 2, 1, 0, '2020-02-18 19:19:17');
-INSERT INTO `tb_record_history` VALUES (44, NULL, NULL, 0, NULL, 1, 1, 0, '2020-02-19 16:42:05');
-INSERT INTO `tb_record_history` VALUES (45, NULL, NULL, 0, NULL, 2, 1, 0, '2020-02-19 16:42:15');
-INSERT INTO `tb_record_history` VALUES (46, NULL, NULL, 0, NULL, 2, 1, 0, '2020-02-19 19:32:04');
-INSERT INTO `tb_record_history` VALUES (47, NULL, NULL, 0, '2020-02-19 19:32:09', 2, 1, 1, NULL);
-INSERT INTO `tb_record_history` VALUES (48, NULL, NULL, 0, NULL, 2, 1, 0, '2020-02-19 19:32:36');
-INSERT INTO `tb_record_history` VALUES (49, NULL, NULL, 0, NULL, 2, 1, 0, '2020-02-19 20:25:12');
-INSERT INTO `tb_record_history` VALUES (50, NULL, NULL, 0, NULL, 2, 1, 0, '2020-02-19 20:25:47');
-INSERT INTO `tb_record_history` VALUES (51, NULL, NULL, 0, NULL, 2, 1, 0, '2020-02-19 20:27:34');
-INSERT INTO `tb_record_history` VALUES (52, NULL, NULL, 0, NULL, 2, 1, 0, '2020-02-19 21:03:05');
-INSERT INTO `tb_record_history` VALUES (53, NULL, NULL, 14, '2020-03-18 21:36:21', 0, 1, 0, NULL);
-INSERT INTO `tb_record_history` VALUES (54, NULL, NULL, 14, '2020-03-18 21:36:30', 0, 1, 1, NULL);
-INSERT INTO `tb_record_history` VALUES (55, NULL, NULL, 14, '2020-03-18 21:36:40', 0, 1, 1, NULL);
-INSERT INTO `tb_record_history` VALUES (56, NULL, NULL, 14, '2020-03-18 21:36:47', 0, 1, 0, NULL);
-INSERT INTO `tb_record_history` VALUES (57, NULL, NULL, 0, NULL, 3, 1, 0, '2020-03-20 19:31:13');
-INSERT INTO `tb_record_history` VALUES (58, NULL, NULL, 0, '2020-03-20 19:31:19', 3, 1, 1, NULL);
-INSERT INTO `tb_record_history` VALUES (59, NULL, NULL, 10, '2020-03-21 20:31:03', 0, 1, 0, NULL);
-INSERT INTO `tb_record_history` VALUES (60, NULL, NULL, 10, '2020-03-21 20:34:07', 0, 1, 1, NULL);
-INSERT INTO `tb_record_history` VALUES (61, NULL, NULL, 14, '2020-03-21 20:43:15', 0, 1, 0, NULL);
-INSERT INTO `tb_record_history` VALUES (62, NULL, NULL, 14, '2020-03-21 20:59:45', 0, 1, 0, NULL);
-INSERT INTO `tb_record_history` VALUES (63, NULL, NULL, 14, '2020-03-21 21:00:36', 0, 1, 0, NULL);
-INSERT INTO `tb_record_history` VALUES (64, NULL, NULL, 14, '2020-03-21 21:58:54', 0, 1, 0, NULL);
-INSERT INTO `tb_record_history` VALUES (65, NULL, NULL, 14, '2020-03-21 22:02:19', 0, 1, 1, NULL);
-INSERT INTO `tb_record_history` VALUES (66, NULL, NULL, 0, NULL, 2, 1, 0, '2020-04-15 19:42:34');
-INSERT INTO `tb_record_history` VALUES (67, NULL, NULL, 0, NULL, 3, 1, 0, '2020-04-15 19:42:39');
 
 -- ----------------------------
 -- Table structure for tb_record_quertions
@@ -353,34 +286,15 @@ INSERT INTO `tb_record_history` VALUES (67, NULL, NULL, 0, NULL, 3, 1, 0, '2020-
 DROP TABLE IF EXISTS `tb_record_quertions`;
 CREATE TABLE `tb_record_quertions`  (
   `rqid` int(11) NOT NULL AUTO_INCREMENT,
-  `date_time` datetime(0) NULL DEFAULT NULL,
-  `error` bit(1) NOT NULL,
+  `date_time` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `error` bit(1) NULL DEFAULT b'1',
   `qusertion_id` int(11) NULL DEFAULT NULL,
-  `score` int(11) NULL DEFAULT NULL,
+  `score` int(11) NULL DEFAULT 0,
   `test_id` int(11) NULL DEFAULT NULL,
   `user_answer` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `user_id` int(11) NULL DEFAULT NULL,
   PRIMARY KEY (`rqid`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 29 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
-
--- ----------------------------
--- Records of tb_record_quertions
--- ----------------------------
-INSERT INTO `tb_record_quertions` VALUES (24, '2020-03-13 22:45:23', b'1', 2, 0, 3, '1', 1);
-INSERT INTO `tb_record_quertions` VALUES (23, '2020-03-13 22:45:23', b'1', 1, 0, 3, '1', 1);
-INSERT INTO `tb_record_quertions` VALUES (25, '2020-03-24 18:25:47', b'1', 1, 0, 3, '1', 1);
-INSERT INTO `tb_record_quertions` VALUES (26, '2020-03-24 18:25:47', b'1', 2, 0, 3, '', 1);
-INSERT INTO `tb_record_quertions` VALUES (27, '2020-04-15 19:44:46', b'1', 1, 0, 15, '', 1);
-INSERT INTO `tb_record_quertions` VALUES (28, '2020-04-15 19:44:46', b'1', 2, 0, 15, '[]', 1);
-
--- ----------------------------
--- Table structure for tb_record_search
--- ----------------------------
-DROP TABLE IF EXISTS `tb_record_search`;
-CREATE TABLE `tb_record_search`  (
-  `rsid` int(11) NOT NULL AUTO_INCREMENT,
-  PRIMARY KEY (`rsid`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Fixed;
+) ENGINE = MyISAM AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for tb_record_tests
@@ -388,38 +302,17 @@ CREATE TABLE `tb_record_search`  (
 DROP TABLE IF EXISTS `tb_record_tests`;
 CREATE TABLE `tb_record_tests`  (
   `rtid` int(11) NOT NULL AUTO_INCREMENT,
-  `date` datetime(0) NULL DEFAULT NULL,
+  `date` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `degree` int(11) NULL DEFAULT 0,
   `spend_time` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `test_id` int(11) NULL DEFAULT NULL,
-  `total_num` int(11) NULL DEFAULT NULL,
-  `total_score` int(11) NOT NULL,
-  `true_num` int(11) NULL DEFAULT NULL,
-  `user_id` int(11) NULL DEFAULT NULL,
   `title` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `ststus` int(11) NULL DEFAULT 0,
+  `total_num` int(11) NULL DEFAULT 0,
+  `total_score` int(11) NULL DEFAULT 0,
+  `true_num` int(11) NULL DEFAULT 0,
+  `user_id` int(11) NULL DEFAULT NULL,
   PRIMARY KEY (`rtid`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 13 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
-
--- ----------------------------
--- Records of tb_record_tests
--- ----------------------------
-INSERT INTO `tb_record_tests` VALUES (12, '2020-04-15 19:44:46', '00:00:04', 15, 2, 0, 0, 1, '专项练习', 3);
-INSERT INTO `tb_record_tests` VALUES (11, '2020-03-24 18:25:47', '00:00:45', 3, 2, 0, 0, 1, '测试1', 0);
-INSERT INTO `tb_record_tests` VALUES (10, '2020-03-13 22:45:23', '00:00:10', 3, 2, 0, 0, 1, '测试1', 0);
-INSERT INTO `tb_record_tests` VALUES (7, '2020-03-13 20:56:49', '00:00:10', 3, 2, 0, 0, 1, '测试1', 0);
-INSERT INTO `tb_record_tests` VALUES (8, '2020-03-13 22:02:29', '00:00:07', 3, 2, 0, 0, 1, '测试1', 0);
-INSERT INTO `tb_record_tests` VALUES (9, '2020-03-13 22:16:31', '00:00:06', 3, 2, 0, 0, 1, '测试1', 0);
-
--- ----------------------------
--- Table structure for tb_skill
--- ----------------------------
-DROP TABLE IF EXISTS `tb_skill`;
-CREATE TABLE `tb_skill`  (
-  `skill_id` int(11) NOT NULL AUTO_INCREMENT,
-  `did` int(11) NULL DEFAULT NULL,
-  `kill_id` int(11) NOT NULL,
-  PRIMARY KEY (`skill_id`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Fixed;
+) ENGINE = MyISAM AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for tb_subject
@@ -535,32 +428,17 @@ CREATE TABLE `tb_test`  (
   `blank_score` int(11) NULL DEFAULT NULL,
   `choice_questios` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `choices_questios` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `content_questios` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `count` int(11) NULL DEFAULT 0,
+  `create_time` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `degree` int(11) NULL DEFAULT 0,
+  `done` int(11) NULL DEFAULT 0,
   `other` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `socre` int(11) NULL DEFAULT 0,
-  `status` int(11) NULL DEFAULT 0,
-  `test_time` datetime(0) NULL DEFAULT NULL,
   `title` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `type` int(11) NULL DEFAULT 0,
   `user_id` int(11) NULL DEFAULT NULL,
-  `views` int(11) NULL DEFAULT 0,
   PRIMARY KEY (`test_id`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 17 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
-
--- ----------------------------
--- Records of tb_test
--- ----------------------------
-INSERT INTO `tb_test` VALUES (10, 0, '1', '', NULL, 1, NULL, 0, 3, '2020-03-12 19:52:08', '专项练习', 0, 1, 0);
-INSERT INTO `tb_test` VALUES (3, 0, '1', '2', '', 2, NULL, 0, 0, '2020-03-11 17:20:43', '测试1', 1, 1, 0);
-INSERT INTO `tb_test` VALUES (6, 0, '1', '2', '', 2, NULL, 0, 0, '2020-03-11 17:27:57', '测试2', 1, 1, 0);
-INSERT INTO `tb_test` VALUES (9, 0, '1', '', NULL, 1, NULL, 0, 3, '2020-03-12 19:47:13', '专项练习', 0, 1, 0);
-INSERT INTO `tb_test` VALUES (11, 0, '1', '2', NULL, 2, NULL, 0, 3, '2020-03-12 19:56:06', '专项练习', 0, 1, 0);
-INSERT INTO `tb_test` VALUES (12, 0, '1', '2', NULL, 2, NULL, 0, 3, '2020-03-12 19:58:34', '专项练习', 0, 1, 0);
-INSERT INTO `tb_test` VALUES (13, 0, '', '', NULL, 0, NULL, 0, 3, '2020-03-24 18:23:19', '专项练习', 0, 1, 0);
-INSERT INTO `tb_test` VALUES (14, 0, '', '', NULL, 0, NULL, 0, 3, '2020-04-15 19:44:26', '专项练习', 0, 1, 0);
-INSERT INTO `tb_test` VALUES (15, 0, '1', '2', NULL, 2, NULL, 0, 3, '2020-04-15 19:44:41', '专项练习', 0, 1, 0);
-INSERT INTO `tb_test` VALUES (16, 0, '1', '2', NULL, 2, NULL, 0, 3, '2020-04-15 20:32:33', '专项练习', 0, 1, 0);
+) ENGINE = MyISAM AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for tb_user
@@ -568,17 +446,15 @@ INSERT INTO `tb_test` VALUES (16, 0, '1', '2', NULL, 2, NULL, 0, 3, '2020-04-15 
 DROP TABLE IF EXISTS `tb_user`;
 CREATE TABLE `tb_user`  (
   `user_id` int(11) NOT NULL AUTO_INCREMENT,
-  `address` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `birthday` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `description` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `expectation` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `direction` int(11) NULL DEFAULT NULL,
   `head_image` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `identity` int(11) NOT NULL,
-  `join_day` datetime(0) NULL DEFAULT NULL,
+  `identity` int(11) NULL DEFAULT NULL,
+  `join_day` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `password` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `position` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `school` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `sex` bit(1) NOT NULL DEFAULT b'0',
+  `sex` bit(1) NULL DEFAULT NULL,
   `username` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`user_id`) USING BTREE
 ) ENGINE = MyISAM AUTO_INCREMENT = 2 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
@@ -586,6 +462,6 @@ CREATE TABLE `tb_user`  (
 -- ----------------------------
 -- Records of tb_user
 -- ----------------------------
-INSERT INTO `tb_user` VALUES (1, NULL, '2020-02-03 11:07:30', '111', '111', 'http://192.168.183.130/group1/M00/00/00/wKi3gl50wyeAYA0EAACJTjs7_vA111.jpg', 0, '2020-02-03 11:07:30', '111', NULL, '111', b'0', '111');
+INSERT INTO `tb_user` VALUES (1, '2020-05-11T16:00:00.000Z', '11', 1, 'http://192.168.183.130/group1/M00/00/00/wKi3gl61ZauAUaykAACJTjs7_vA014.jpg', 0, '2020-05-08 17:07:07', '11', '11', b'0', '涛涛');
 
 SET FOREIGN_KEY_CHECKS = 1;
