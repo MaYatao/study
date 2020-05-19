@@ -147,7 +147,7 @@ public class ElasticOperationService {
 
     public <T> List<T> queryDocumentByParam(String indices, String type, SearchParam param, Class<T> clazz) {
         SearchRequestBuilder builder = buildRequest(indices, type);
-        builder.addSort("createTime", SortOrder.DESC);
+     /*   builder.addSort("createTime", SortOrder.DESC);*/
         builder.setQuery(convertParam(param));
         builder.setFrom(0).setSize(10);
         SearchResponse resp = builder.get();

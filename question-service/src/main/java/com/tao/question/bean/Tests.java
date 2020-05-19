@@ -70,5 +70,6 @@ public class Tests {
      * 备注
      */
     private String other;
-    private Boolean done;
+    @Column(name = "done", columnDefinition = "int default 0")
+    private int done;
 }

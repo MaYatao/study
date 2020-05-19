@@ -8,8 +8,11 @@ import com.tao.blog.mapper.CommentMapper;
 import com.tao.blog.mapper.ContentMapper;
 import com.tao.blog.service.ContentService;
 import com.tao.blog.pojo.BlogResult;
+import com.tao.study.bean.RecordKnowledge;
+import com.tao.study.mapper.RecordKnowledgeMapper;
 import com.tao.user.bean.User;
 import com.tao.user.mapper.UserMapper;
+import org.apache.ibatis.session.RowBounds;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tk.mybatis.mapper.entity.Example;
@@ -35,6 +38,8 @@ public class ContentServiceImpl implements ContentService {
 
     @Autowired
     private CommentMapper commentMapper;
+    @Autowired
+    private RecordKnowledgeMapper recordKnowledgeMapper;
 
     @Override
     public void save(Content content) {
@@ -193,4 +198,20 @@ public class ContentServiceImpl implements ContentService {
         }
 
     }
+    //根据结点推荐课程
+    public List<Content> recommendContent(Integer userId) {
+        Example example = new Example(RecordKnowledge.class);
+        Example.Criteria criteria = example.createCriteria();
+        criteria.andEqualTo("userId", userId);
+        example.orderBy("rkid");
+        RowBounds rowBounds = new RowBounds(1, 10);
+        List<RecordKnowledge> recordKnowledges = recordKnowledgeMapper.selectByExampleAndRowBounds(example, rowBounds);
+        Example example1 = new Example(RecordKnowledge.class);
+        Example.Criteria criteria1 = example1.createCriteria();
+        criteria1.andIn("knowledges1", recordKnowledges);
+        criteria1.andIn("knowledges2", recordKnowledges);
+        criteria1.andIn("knowledges3", recordKnowledges);
+        return contentMapper.selectByExample(example1);
+    }
+
 }

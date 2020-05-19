@@ -23,13 +23,12 @@ public class KnowledgeController {
     @RequestMapping(value = "/getKnowledgesBySId")
     @ResponseBody
     public AIResult getSubject(Integer subjectId) {
-        try {
+          try {
             List<Knowledge> subjectResult = knowledgeService.getKnowledgesBySId(subjectId);
             return AIResult.ok(subjectResult);
         } catch (Exception e) {
-
             return AIResult.build(500, e.getMessage());
         }
-
     }
+
 }

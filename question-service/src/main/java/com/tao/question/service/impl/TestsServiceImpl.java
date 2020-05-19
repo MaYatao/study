@@ -80,7 +80,7 @@ public class TestsServiceImpl implements TestsService {
         Example example = new Example(Tests.class);
         Example.Criteria criteria=example.createCriteria();
         criteria.andEqualTo("type",1);
-        example.orderBy("views");
+        example.orderBy("done").desc();
         testsList = testsMapper.selectByExample(example);
         List<TestResult> resultList = new ArrayList<>();
         for (Tests tests : testsList) {

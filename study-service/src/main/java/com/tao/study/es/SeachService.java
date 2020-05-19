@@ -11,18 +11,15 @@ public class SeachService {
 
     @Autowired
     private ElasticOperationService elasticOperationService;
-    
+
     private String index = "seach-api";
-    
+
     private String type = "user";
-    
-    
 
     public void afterPropertiesSet() throws Exception {
 	   elasticOperationService.createIndexIfNotExist(index, type);
     }
-    
-    
+
     public void batchAddBean(List<SearchParam> bean) {
 	   if(CollectionUtils.isEmpty(bean)) {
 	       return ;
@@ -31,8 +28,8 @@ public class SeachService {
 	       elasticOperationService.addDocumentToBulkProcessor(index, type, user);
 	   }
     }
-    
-    
+
+
 
     public void addUser(SearchParam user) {
 	   elasticOperationService.addDocument(index, type, user);

@@ -16,4 +16,6 @@ public interface CoursesService {
     List<Couerses> getCoursesByType(Couerses couerses);
 
   Couerses getCourseById(Integer couerseId);
+
+  List<Couerses> recommendCourse(Integer userId);
 }

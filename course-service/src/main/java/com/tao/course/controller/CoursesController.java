@@ -63,5 +63,15 @@ public class CoursesController {
         }
     }
 
+    @RequestMapping(value = "/recommendCourse")
+    public AIResult recommendCourse(Integer userId) {
+        try {
+           List<Couerses>  course= coursesService.recommendCourse(userId);
+            return    AIResult.ok(course);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return AIResult.build(500, e.getMessage());
+        }
+    }
 
 }

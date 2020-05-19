@@ -44,12 +44,12 @@ public class Content {
      * 点赞数
      */
     @Column(name = "agree", columnDefinition = "int default 0")
-    private Integer agree;
+    private int agree;
     /**
      * 评论数
      */
     @Column(name = "comments", columnDefinition = "int default 0")
-    private Integer comments;
+    private int comments;
     /**
      * 删除-1，草稿1，发布0
      */
