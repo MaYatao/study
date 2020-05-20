@@ -22,12 +22,12 @@ public class Comment {   //评论表
      */
     private String content;
     /**
-     * 点赞转发者
+     * 点赞评论者
      */
     @Column(name = "from_user")
     private Integer fromUser;
     /**
-     * 被点赞转发者
+     * 被点赞评论者
      */
     @Column(name = "to_user")
     private Integer toUser;

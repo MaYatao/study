@@ -10,7 +10,6 @@ import com.tao.blog.bean.RecordHistory;
 public interface RecordHistoryService {
   public   void addViews(RecordHistory recordHistory);
 
-  public  void addCollection(RecordHistory recordHistory);
   public  void addAggre(RecordHistory recordHistory);
   public  void addComment(RecordHistory recordHistory);
 }

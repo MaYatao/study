@@ -39,17 +39,7 @@ public class RecordHistoryServiceImpl implements RecordHistoryService {
         contentMapper.updateByPrimaryKeySelective(content);
     }
 
-    @Override
-    public void addCollection(RecordHistory recordHistory) {
-        Date currentTime = new Date();
-        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        String dateString = formatter.format(currentTime);
 
-        Content content = contentMapper.selectByPrimaryKey(recordHistory.getContentId());
-
-        recordHistoryMapper.insert(recordHistory);
-        contentMapper.updateByPrimaryKeySelective(content);
-    }
 
     @Override
     public void addAggre(RecordHistory recordHistory) {

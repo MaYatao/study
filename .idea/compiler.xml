@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="gateway" />
+        <module name="common" />
+        <module name="manage-service" />
+        <module name="study-service" />
+        <module name="registry" />
+        <module name="user-service" />
+        <module name="course-service" />
+        <module name="question-service" />
+        <module name="blog-service" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="blog-service" target="1.8" />
+      <module name="common" target="1.8" />
+      <module name="course-service" target="1.8" />
+      <module name="gateway" target="1.8" />
+      <module name="manage-service" target="1.8" />
+      <module name="question-service" target="1.8" />
+      <module name="registry" target="1.8" />
+      <module name="study" target="1.8" />
+      <module name="study-service" target="1.8" />
+      <module name="user-service" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="blog-service" options="-parameters" />
+      <module name="common" options="-parameters" />
+      <module name="course-service" options="-parameters" />
+      <module name="gateway" options="-parameters" />
+      <module name="manage-service" options="-parameters" />
+      <module name="question-service" options="-parameters" />
+      <module name="registry" options="-parameters" />
+      <module name="study-service" options="-parameters" />
+      <module name="user-service" options="-parameters" />
+    </option>
+  </component>
+</project>

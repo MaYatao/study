@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/blog-service/blog-service.iml" filepath="$PROJECT_DIR$/blog-service/blog-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/common/common.iml" filepath="$PROJECT_DIR$/common/common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/course-service/course-service.iml" filepath="$PROJECT_DIR$/course-service/course-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gateway/gateway.iml" filepath="$PROJECT_DIR$/gateway/gateway.iml" />
+      <module fileurl="file://$PROJECT_DIR$/manage-service/manage-service.iml" filepath="$PROJECT_DIR$/manage-service/manage-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/question-service/question-service.iml" filepath="$PROJECT_DIR$/question-service/question-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/registry/registry.iml" filepath="$PROJECT_DIR$/registry/registry.iml" />
+      <module fileurl="file://$PROJECT_DIR$/study.iml" filepath="$PROJECT_DIR$/study.iml" />
+      <module fileurl="file://$PROJECT_DIR$/study-service/study-service.iml" filepath="$PROJECT_DIR$/study-service/study-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/user-service/user-service.iml" filepath="$PROJECT_DIR$/user-service/user-service.iml" />
+    </modules>
+  </component>
+</project>

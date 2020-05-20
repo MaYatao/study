@@ -24,7 +24,9 @@ import java.util.Date;
 public class ContentController {
     @Autowired
     private ContentService contentService;
-
+    /**
+   * 创建或修改完章
+     **/
     @RequestMapping(value = "/createOrEditArticle", method = RequestMethod.POST,produces="application/json")
     @ResponseBody
     public AIResult saveUser(@RequestBody Content content) {
@@ -44,7 +46,9 @@ public class ContentController {
         }
         return AIResult.ok("发布成功");
     }
-
+    /**
+     * 得到热门文章
+     **/
     @RequestMapping(value = "/getHotArticle", method = RequestMethod.POST)
     @ResponseBody
     public AIResult getHotArticle(Integer page, Integer row,Integer  type) {
@@ -56,7 +60,9 @@ public class ContentController {
             return AIResult.build(500, e.getMessage());
         }
     }
-
+    /**
+     * 最新热门文章
+     **/
     @RequestMapping(value = "/getLastArticle", method = RequestMethod.POST)
     @ResponseBody
     public AIResult getLastArticle(Integer page, Integer row ,Integer  type) {
@@ -67,6 +73,9 @@ public class ContentController {
             return AIResult.build(500, e.getMessage());
         }
     }
+    /**
+     * 根据用户id查询文章
+     **/
 
     @RequestMapping(value = "/getArticleByUid", method = RequestMethod.POST)
     @ResponseBody
@@ -78,6 +87,9 @@ public class ContentController {
             return AIResult.build(500, e.getMessage());
         }
     }
+    /**
+     * 根据id查找文章
+     **/
     @RequestMapping(value = "/getArticleById", method = RequestMethod.POST)
     @ResponseBody
     public AIResult getArticleById(Integer contentId,Integer userId) {
@@ -90,7 +102,9 @@ public class ContentController {
             return AIResult.build(500, e.getMessage());
         }
     }
-
+    /**
+     * 删除文章
+     **/
     @RequestMapping(value = "/deleteByCid")
     @ResponseBody
     public AIResult deleteArticle(Integer contentId,Integer userId) {
@@ -101,7 +115,6 @@ public class ContentController {
         } catch (Exception e) {
             System.out.println(e.getMessage());
             return AIResult.build(500, e.getMessage());
-
         }
     }
 

@@ -46,5 +46,9 @@ public class RecordHistory {
      */
     @Column(name = "comment_time")
     private String commentTime;
-
+    /**ß
+     * 访问时间
+     */
+    @Column(name = "view_time")
+    private String viewTime;
 }

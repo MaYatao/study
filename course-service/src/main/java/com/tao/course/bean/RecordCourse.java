@@ -18,8 +18,13 @@ public class RecordCourse {
     private   Integer  rcid;
     private   Integer  userId;
     //课程名
-    private   Integer   courseId;
+    private   Integer  courseId;
     //学习总时间
     private   String  studyTime;
+
+    //最后学习时间
+    private   String  lastTime;
+    //是否完成
+    private  Boolean studyed;
 
 }
