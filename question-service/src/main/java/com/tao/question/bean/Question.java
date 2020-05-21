@@ -37,11 +37,11 @@ public class Question {
        /**
      * 知识点
      */
-    private   String    knowledge ;   
-    @Column(name="score" ,columnDefinition="int default 0")
-       /**
+    private   String    knowledge ;
+    /**
      * 分值
      */
+    @Column(name="score" ,columnDefinition="int default 0")
     private   int    score;        
     @Column(name="uid" ,columnDefinition="int default 0")
        /**

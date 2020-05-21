@@ -5,6 +5,7 @@ import com.tao.blog.bean.Content;
 import com.tao.blog.service.ContentService;
 import com.tao.blog.pojo.BlogResult;
 import com.tao.common.utils.AIResult;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -14,6 +15,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @Author tao
@@ -24,6 +27,9 @@ import java.util.Date;
 public class ContentController {
     @Autowired
     private ContentService contentService;
+    @Autowired
+    RabbitTemplate rabbitTemplate;
+
     /**
    * 创建或修改完章
      **/
@@ -37,8 +43,29 @@ public class ContentController {
         try {
             if(content.getContentId()==null){
                 contentService.save(content);
+
+                Map<String,Object> map=new HashMap<>();
+                BlogResult contents = contentService.getArticleById(content.getContentId());
+                map.put("title",contents.getTitle());
+                map.put("content",contents.getContent());
+                map.put("id",contents.getContentId());
+                map.put("userId",contents.getUserId());
+
+                map.put("username",contents.getUsername());
+                map.put("type",0);
+                rabbitTemplate.convertAndSend("es.save.queue",map);
             }else{
                 contentService.edit(content);
+                BlogResult contents = contentService.getArticleById(content.getContentId());
+                Map<String,Object> map=new HashMap<>();
+                map.put("title",contents.getTitle());
+                map.put("content",contents.getContent());
+                map.put("id",contents.getContentId());
+                map.put("userId",contents.getUserId());
+
+                map.put("username",contents.getUsername());
+                map.put("type",0);
+                rabbitTemplate.convertAndSend("es.update.queue",map);
             }
 
         } catch (Exception e) {
@@ -110,7 +137,16 @@ public class ContentController {
     public AIResult deleteArticle(Integer contentId,Integer userId) {
 
         try {
+            BlogResult contents = contentService.getArticleById(contentId);
             contentService.deleteArticleByCid(contentId,userId);
+            Map<String,Object> map=new HashMap<>();
+            map.put("title",contents.getTitle());
+            map.put("content",contents.getContent());
+            map.put("id",contents.getContentId());
+            map.put("userId",contents.getUserId());
+            map.put("username",contents.getUsername());
+            map.put("type",0);
+            rabbitTemplate.convertAndSend("es.save.queue",map);
             return AIResult.ok("删除成功");
         } catch (Exception e) {
             System.out.println(e.getMessage());

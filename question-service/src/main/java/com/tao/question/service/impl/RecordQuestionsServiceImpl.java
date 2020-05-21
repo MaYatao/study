@@ -8,6 +8,7 @@ import com.tao.question.bean.RecordQuestions;
 import com.tao.question.mapper.QuestionsMapper;
 import com.tao.question.mapper.RecordQuestionsMapper;
 import com.tao.question.service.RecordQuertionsService;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tk.mybatis.mapper.entity.Example;
@@ -23,10 +24,15 @@ import java.util.*;
 @Service
 public class RecordQuestionsServiceImpl  implements RecordQuertionsService {
 
+
     @Autowired
     private RecordQuestionsMapper  recordQuestionsMapper;
     @Autowired
     private QuestionsMapper questionsMapper;
+    //使用RabbitTemplate,这提供了接收/发送等等方法
+
+    @Autowired
+    RabbitTemplate rabbitTemplate;
 
     @Override
     public Map<String, Integer> saveQuestions(Map<String,Object>  map) {
@@ -37,14 +43,14 @@ public class RecordQuestionsServiceImpl  implements RecordQuertionsService {
        //map中的List如何转化
         String listTxt = JSONArray.toJSONString(map.get("questionList"));
         List<Question> questionList=JSONObject.parseArray (listTxt,Question.class);
-        System.out.println(questionList);
 
-        for (Question question: questionList) {
+        for ( Question question: questionList) {
             Question q=questionsMapper.selectByPrimaryKey(question.getQid());
             RecordQuestions recordQuestions=new RecordQuestions();
             Date currentTime = new Date();
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
             String dateString = formatter.format(currentTime);
+            recordQuestions.setKnowledge(q.getKnowledge());
             recordQuestions.setDateTime(dateString);
             recordQuestions.setQusertionId(question.getQid());
             recordQuestions.setUserId(userId);

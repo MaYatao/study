@@ -33,15 +33,15 @@ public class AnnounceController {
         try {
                 announceService.save(announce);
             Map<String,Object> map=new HashMap<>();
-
-            map.put("fromUser",-1)   ;//点赞转发者
+         //点赞转发者
+            map.put("fromUser",-1)   ;
             map.put("title",announce.getTitle());
             map.put("toUser",announce.getToUser());
             map.put("sentTime",announce.getSentTime());
             map.put("content",announce.getContent());
             map.put("status",false);
             map.put("type",0);
-            rabbitTemplate.convertAndSend("matao.announce.queue",map);
+            rabbitTemplate.convertAndSend("message.announce.queue",map);
         } catch (Exception e) {
             return AIResult.build(500, e.getMessage());
         }

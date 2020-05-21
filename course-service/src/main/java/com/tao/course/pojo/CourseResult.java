@@ -1,24 +1,47 @@
 package com.tao.course.pojo;
 
+import com.tao.course.bean.Couerses;
 import lombok.Data;
 
+import javax.persistence.Column;
+
 @Data
-public class CourseResult {
-    private   Integer  courseId;
-    private   String  title;
-    private   String  description;  //描述
-    private   String   basics;   //学习基础
-    private    String  goal  ;   //学习目标
-    private   String  knowledges ;   //知识点
-    private   String  url;     //视频或者资源链接
-    private   String  source;
-    private   String  imageUrl;     //封面链接
-    private String   createTime;   //上传时间
-    private   int    userId; //  作者
-    private   String    username; //  作者
-    private   Integer     direction;  //方向  前端，后端
-    private   Integer     degree ;//难度
-    private   Integer     subject; //科目
+public class CourseResult   {
+    private Integer courseId;
+    private String title;
+
+    private String description;
+
+    private String basics;
+
+    private String goal;
+
+    private Integer knowledges1;
+    private String knowledges1Name;
+
+    private Integer knowledges2;
+    private String knowledges2Name;
+
+    private Integer knowledges3;
+    private String knowledges3Name;
+
+    private String url;
+
+    private String imageUrl;
+
+    private String createTime;
+
+    private Integer userId;
+
+    private   String    username;
+
+    private Integer direction;
+
+    private Integer degree;
+
+    private Integer subject;
+
+
 
 
 }

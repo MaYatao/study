@@ -51,4 +51,9 @@ public class RecordQuestions {
      */
     @Column(name="score" ,columnDefinition="int default 0")
     private   int score;
+    /**
+     * 知识点
+     */
+    private   String    knowledge ;
+
 }

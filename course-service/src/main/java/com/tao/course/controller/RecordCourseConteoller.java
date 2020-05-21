@@ -26,9 +26,6 @@ import java.util.Map;
 public class RecordCourseConteoller   {
     @Autowired
     private RecordCourseServcie  recordCourseServcie;
-    //使用RabbitTemplate,这提供了接收/发送等等方法
-    @Autowired
-    RabbitTemplate rabbitTemplate;
 
     //开始学习
     @RequestMapping(value = "/createRC", method = RequestMethod.POST,produces="application/json")
@@ -39,16 +36,14 @@ public class RecordCourseConteoller   {
         recordCourse.setLastTime(dateString);
         try {
                 recordCourseServcie.save(recordCourse);
-            Map<String,Object> map=new HashMap<>();
-
-            map.put("type",1);
-            rabbitTemplate.convertAndSend("matao.study.queue",map);
         } catch (Exception e) {
             return AIResult.build(500, e.getMessage());
         }
         return AIResult.ok("发布成功");
     }
-    //开始学习
+    /**
+    * 开始学习
+    * */
     @RequestMapping(value = "/editRC", method = RequestMethod.POST,produces="application/json")
     public AIResult editUser(@RequestBody RecordCourse recordCourse) {
         Date currentTime = new Date();
@@ -57,10 +52,7 @@ public class RecordCourseConteoller   {
         recordCourse.setLastTime(dateString);
         try {
             recordCourseServcie.edit(recordCourse);
-            Map<String,Object> map=new HashMap<>();
 
-            map.put("type",1);
-            rabbitTemplate.convertAndSend("matao.study.queue",map);
         } catch (Exception e) {
             return AIResult.build(500, e.getMessage());
         }
@@ -71,7 +63,6 @@ public class RecordCourseConteoller   {
        public AIResult getRCBy(Integer  courseId,Integer userId) {
         try {
            RecordCourse recordCourse= recordCourseServcie.getRC(courseId,userId);
-            Map<String,Object> map=new HashMap<>();
 
             return    AIResult.ok(recordCourse);
         } catch (Exception e) {

@@ -61,6 +61,7 @@ public class Couerses {
     private String createTime;
     @Column(name = "user_id")
     private Integer userId;
+    private   String    username;
     /**
      * 方向  前端，后端
      */

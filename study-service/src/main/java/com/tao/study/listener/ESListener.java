@@ -1,8 +1,9 @@
-package com.tao.manage.listener;
+package com.tao.study.listener;
 
-import com.tao.manage.bean.Messages;
-import com.tao.manage.service.MessagesService;
 import com.rabbitmq.client.Channel;
+import com.tao.study.es.ElasticOperationService;
+import com.tao.study.es.SeachService;
+import com.tao.study.es.SearchParam;
 import org.springframework.amqp.core.ExchangeTypes;
 import org.springframework.amqp.core.Message;
 import org.springframework.amqp.rabbit.annotation.*;
@@ -12,10 +13,9 @@ import org.springframework.stereotype.Component;
 import java.util.Map;
 
 @Component
-public class MessagesListener {
-
+public class ESListener {
     @Autowired
-    private MessagesService messageService;
+    private SeachService esService;
 
     @RabbitListener(bindings = @QueueBinding(
             value = @Queue(value = "message.announce.queue",durable = "true"), //队列持久化
@@ -28,7 +28,8 @@ public class MessagesListener {
     ))
     @RabbitHandler
     public void addAnnounce(Map<String,Object> map){
-        messageService.saveAnnounce(map);
+        SearchParam param=new SearchParam();
+        esService.add(param);
 
     }
 
@@ -45,18 +46,9 @@ public class MessagesListener {
         System.out.println("ack.test接收到的消息 : " + map);
         System.out.println(message);
         try {
-            Messages messages=new Messages();
-            messages.setStatus(false);
-            messages.setTitle((String) map.get("title"));
-            messages.setContent((String) map.get("content"));
-            messages.setFromUser((Integer) map.get("fromUser"));
-            messages.setToUser((Integer) map.get("toUser"));
-            messages.setSentTime((String) map.get("sentTime"));
-            messages.setContentId((Integer) map.get("contentId"));
-            messages.setCourseId((Integer) map.get("courseId"));
-            messages.setType((Integer) map.get("type"));
-            messageService.saveComment(messages);
- channel.basicAck(message.getMessageProperties().getDeliveryTag(), true); // 消息的标识，false只确认当前一个消息收到，true确认所有consumer获得的消息
+            SearchParam param=new SearchParam();
+            esService.update(param);
+            channel.basicAck(message.getMessageProperties().getDeliveryTag(), true); // 消息的标识，false只确认当前一个消息收到，true确认所有consumer获得的消息
 // channel.basicNack(message.getMessageProperties().getDeliveryTag(), false, true); // ack返回false，并重新回到队列，api里面解释得很清楚
 // channel.basicReject(message.getMessageProperties().getDeliveryTag(), true); // 拒绝消息
 //            channel.basicNack(message.getMessageProperties().getDeliveryTag(), false, true); // ack返回false，并重新回到队列，api里面解释得很清楚
@@ -75,15 +67,8 @@ public class MessagesListener {
     ))
     @RabbitHandler
     public void addAgree(Map<String,Object> map){
-        Messages messages=new Messages();
-        messages.setContent((String) map.get("content"));
-        messages.setFromUser((Integer) map.get("fromUser"));
-        messages.setToUser((Integer) map.get("toUser"));
-        messages.setSentTime((String) map.get("sentTime"));
-        messages.setStatus(false);
-        messages.setContent((String) map.get("content"));
-        messages.setType((Integer) map.get("type"));
-        messageService.saveAgree(messages);
+        SearchParam param=new SearchParam();
+        esService.deleted(param);
 
     }
 

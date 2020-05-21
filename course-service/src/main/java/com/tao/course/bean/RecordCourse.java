@@ -26,5 +26,18 @@ public class RecordCourse {
     private   String  lastTime;
     //是否完成
     private  Boolean studyed;
+    /**
+     * 知识点
+     */
+    private Integer knowledges1;
+    /**
+     * 知识点
+     */
+    private Integer knowledges2;
+
+    /**
+     * 知识点
+     */
+    private Integer knowledges3;
 
 }

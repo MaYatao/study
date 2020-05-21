@@ -21,4 +21,5 @@ public class QuestionResult {
     private String knowledge;
     private String analysis;
 
+
 }

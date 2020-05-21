@@ -65,7 +65,7 @@ public class RecordHistoryController {
             map.put("title","对为你点赞");
             map.put("contentId",recordHistory.getContentId());
             map.put("type",0);
-            rabbitTemplate.convertAndSend("matao.aggree.queue",map);
+            rabbitTemplate.convertAndSend("message.aggree.queue",map);
             return AIResult.ok();
         } catch (Exception e) {
             return AIResult.build(500, e.getMessage());

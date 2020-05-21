@@ -20,7 +20,7 @@ public class SeachService {
 	   elasticOperationService.createIndexIfNotExist(index, type);
     }
 
-    public void batchAddBean(List<SearchParam> bean) {
+    public void batchAdd(List<SearchParam> bean) {
 	   if(CollectionUtils.isEmpty(bean)) {
 	       return ;
 	   }
@@ -31,23 +31,22 @@ public class SeachService {
 
 
 
-    public void addUser(SearchParam user) {
+    public void add(SearchParam user) {
 	   elasticOperationService.addDocument(index, type, user);
     }
 
 
-    public void deletedUserById(String id) {
-    	elasticOperationService.deleteDocumentById(index, type, id);
+    public void deleted (SearchParam param){
+    	elasticOperationService.deleteDocumentByQuery(index, type,param);
     }
 
 
-    public void updateUser(SearchParam user) {
-	   String id = user.getId();
-	   user.setId(null);
-	   elasticOperationService.updateDocument(index, type,id, user);
+    public void update(SearchParam param) {
+
+	   elasticOperationService.updateDocumentByQuery(index, type,param,param);
     }
 
-      public List<SearchParam> queryByUserName(String title) {
+      public List<SearchParam> queryByName(String title) {
         SearchParam param = new SearchParam();
 	   param.setTitle(title);
 	   return elasticOperationService.queryDocumentByParam(index, type, param,SearchParam.class);

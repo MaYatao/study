@@ -50,7 +50,7 @@ public class CommentController {
            recordHistory.setContentId(comment.getContentId());
            recordHistory.setFromUser(comment.getFromUser());
            recordHistory.setToUser(comment.getToUser());
-           recordHistoryService.addComment(recordHistory);
+            recordHistoryService.addComment(recordHistory);
             commentService.save(comment);
             Map<String,Object> map=new HashMap<>();
             map.put("fromUser",comment.getFromUser())   ;//点赞转发者
@@ -59,7 +59,7 @@ public class CommentController {
             map.put("title","对你进行了的评论");
             map.put("contentId",comment.getContentId());
             map.put("type",1);
-           rabbitTemplate.convertAndSend("matao.comment.queue",map);
+           rabbitTemplate.convertAndSend("message.comment.queue",map);
            return AIResult.ok("发布成功");
         } catch (Exception e) {
          e.printStackTrace();
