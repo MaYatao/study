@@ -44,7 +44,6 @@ public class UserController {
     @ResponseBody
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public AIResult login(User user) {
-        System.out.println(user);
         try {
             User u = userService.login(user);
             u.setPassword("");
@@ -90,7 +89,6 @@ public class UserController {
         } catch (Exception e) {
             return AIResult.build(500, e.getMessage());
         }
-
     }
 
     @RequestMapping(value = "/deleteUserById")
