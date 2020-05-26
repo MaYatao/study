@@ -46,6 +46,8 @@ public class RecordHistory {
      */
     @Column(name = "comment_time")
     private String commentTime;
+    @Column(name = "course_id")
+    private Integer courseId;
     /**ß
      * 访问时间
      */

@@ -11,5 +11,5 @@ import java.util.List;
  * @Date: 2020/4/21 15:36
  */
 public interface KnowledgeService {
-    List<Knowledge> getKnowledgesBySId(Integer subjectId);
+    List<Knowledge> getKnowledgeBySId(Integer subjectId);
 }

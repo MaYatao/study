@@ -50,7 +50,9 @@ public class RecordQuestionsServiceImpl  implements RecordQuertionsService {
             Date currentTime = new Date();
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
             String dateString = formatter.format(currentTime);
-            recordQuestions.setKnowledge(q.getKnowledge());
+            recordQuestions.setKnowledge1(q.getKnowledge1());
+            recordQuestions.setKnowledge2(q.getKnowledge2());
+            recordQuestions.setKnowledge3(q.getKnowledge3());
             recordQuestions.setDateTime(dateString);
             recordQuestions.setQusertionId(question.getQid());
             recordQuestions.setUserId(userId);
@@ -88,7 +90,9 @@ public class RecordQuestionsServiceImpl  implements RecordQuertionsService {
             questionResult.setAnswer(question.getAnswer());
             questionResult.setContent(question.getContent());
             questionResult.setDegree(question.getDegree());
-            questionResult.setKnowledge(question.getKnowledge());
+            questionResult.setKnowledge1(question.getKnowledge1());
+            questionResult.setKnowledge1(question.getKnowledge2());
+            questionResult.setKnowledge3(question.getKnowledge3());
             questionResult.setOptions(question.getOptions());
             questionResult.setType(question.getType());
             questionResult.setTestId(rq.getTestId());

@@ -33,16 +33,16 @@ public class Couerses {
     /**
      * 知识点
      */
-    private Integer knowledges1;
+    private Integer knowledge1;
     /**
      * 知识点
      */
-    private Integer knowledges2;
+    private Integer knowledge2;
 
     /**
      * 知识点
      */
-    private Integer knowledges3;
+    private Integer knowledge3;
     /**
      * 视频链接
      */

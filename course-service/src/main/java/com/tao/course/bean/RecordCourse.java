@@ -29,7 +29,7 @@ public class RecordCourse {
     /**
      * 知识点
      */
-    private Integer knowledges1;
+    private Integer Knowledge1;
     /**
      * 知识点
      */

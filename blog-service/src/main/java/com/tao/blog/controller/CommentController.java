@@ -47,6 +47,7 @@ public class CommentController {
 //           存放到记录中
            RecordHistory recordHistory =new RecordHistory();
            recordHistory.setCommentTime(dateString);
+           recordHistory.setCourseId(comment.getCourseId());
            recordHistory.setContentId(comment.getContentId());
            recordHistory.setFromUser(comment.getFromUser());
            recordHistory.setToUser(comment.getToUser());

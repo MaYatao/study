@@ -16,11 +16,11 @@ public class CourseResult   {
 
     private String goal;
 
-    private Integer knowledges1;
-    private String knowledges1Name;
+    private Integer Knowledge1;
+    private String Knowledge1Name;
 
-    private Integer knowledges2;
-    private String knowledges2Name;
+    private Integer Knowledge2;
+    private String Knowledge2Name;
 
     private Integer knowledges3;
     private String knowledges3Name;

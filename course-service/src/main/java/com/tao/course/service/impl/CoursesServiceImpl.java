@@ -70,9 +70,9 @@ public class CoursesServiceImpl implements CoursesService {
         List<RecordKnowledge> recordKnowledges = recordKnowledgeMapper.selectByExampleAndRowBounds(example, rowBounds);
         Example example1 = new Example(RecordKnowledge.class);
         Example.Criteria criteria1 = example1.createCriteria();
-        criteria1.andIn("knowledges1", recordKnowledges);
-        criteria1.andIn("knowledges2", recordKnowledges);
-        criteria1.andIn("knowledges3", recordKnowledges);
+        criteria1.andIn("knowledge1", recordKnowledges);
+        criteria1.andIn("knowledge2", recordKnowledges);
+        criteria1.andIn("knowledge3", recordKnowledges);
         return coursesMapper.selectByExample(example1);
     }
 

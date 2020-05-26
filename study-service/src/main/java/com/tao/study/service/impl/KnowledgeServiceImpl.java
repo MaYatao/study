@@ -22,7 +22,7 @@ public class KnowledgeServiceImpl  implements KnowledgeService {
     private KnowledgeMapper knowledgeMapper;
 
     @Override
-    public List<Knowledge> getKnowledgesBySId(Integer subjectId) {
+    public List<Knowledge> getKnowledgeBySId(Integer subjectId) {
         Example example=new Example(Knowledge.class);
         Example.Criteria criteria=example.createCriteria();
         criteria.andEqualTo("subjectId",subjectId);

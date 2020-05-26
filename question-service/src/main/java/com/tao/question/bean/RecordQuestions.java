@@ -54,6 +54,15 @@ public class RecordQuestions {
     /**
      * 知识点
      */
-    private   String    knowledge ;
+    private Integer knowledge1;
+    /**
+     * 知识点
+     */
+    private Integer knowledge2;
+
+    /**
+     * 知识点
+     */
+    private Integer knowledge3;
 
 }

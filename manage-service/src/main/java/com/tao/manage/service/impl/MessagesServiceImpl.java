@@ -52,19 +52,19 @@ public class MessagesServiceImpl implements MessagesService {
 
     @Override
     public void saveAnnounce(Map<String, Object> map) {
-        Example example=new Example(User.class);
-       Example.Criteria criteria=example.createCriteria();
-       Integer type= (Integer) map.get("type");
-       if(type==1){
-           criteria.andEqualTo("identity",0);
-       }
-        if(type==2){
-            criteria.andEqualTo("identity",1);
+        Example example = new Example(User.class);
+        Example.Criteria criteria = example.createCriteria();
+        Integer type = (Integer) map.get("type");
+        if (type == 1) {
+            criteria.andEqualTo("identity", 0);
         }
-        List<User> userList=userMapper.selectByExample(example);
-        for (User user:userList){
-            Messages messages=new Messages();
-            messages.setTitle((String)map.get("title"));
+        if (type == 2) {
+            criteria.andEqualTo("identity", 1);
+        }
+        List<User> userList = userMapper.selectByExample(example);
+        for (User user : userList) {
+            Messages messages = new Messages();
+            messages.setTitle((String) map.get("title"));
             messages.setContent((String) map.get("content"));
             messages.setFromUser((Integer) map.get("fromUser"));
             messages.setToUser(user.getUserId());
@@ -79,35 +79,35 @@ public class MessagesServiceImpl implements MessagesService {
 
     @Override
     public PageInfo<MessageResult> getMessageByUid(Integer page, Integer row, Integer userId, Integer type) {
-        Example example=new Example(Messages.class);
+        Example example = new Example(Messages.class);
         example.orderBy("status");
-        Example.Criteria criteria=example.createCriteria();
-        criteria.andEqualTo("type",type);
-        criteria.andEqualTo("toUser",userId);
+        Example.Criteria criteria = example.createCriteria();
+        criteria.andEqualTo("type", type);
+        criteria.andEqualTo("toUser", userId);
         List<Messages> messagesList = messagsMapper.selectByExample(example);
-        List<MessageResult> messageResults=new ArrayList<>();
-        for(Messages messages:messagesList){
-            MessageResult messageResult=new MessageResult();
-            if(messages.getFromUser() ==-1){
+        List<MessageResult> messageResults = new ArrayList<>();
+        for (Messages messages : messagesList) {
+            MessageResult messageResult = new MessageResult();
+            if (messages.getFromUser() == -1) {
                 messageResult.setFromUserName("网站管理员");
-            }else{
-                User formUser=userMapper.selectByPrimaryKey(messages.getFromUser());
+            } else {
+                User formUser = userMapper.selectByPrimaryKey(messages.getFromUser());
                 messageResult.setToUser(messages.getFromUser());
                 messageResult.setToUserName(formUser.getUsername());
                 messageResult.setToUserImage(formUser.getHeadImage());
             }
-            User toUser=userMapper.selectByPrimaryKey(messages.getToUser());
+            User toUser = userMapper.selectByPrimaryKey(messages.getToUser());
             messageResult.setToUser(messages.getToUser());
             messageResult.setMessagesId(messages.getMessageId());
             messageResult.setTitle(messages.getTitle());
             messageResult.setToUserName(toUser.getUsername());
             messageResult.setToUserImage(toUser.getHeadImage());
-
+            messageResult.setContent(messages.getContent());
             messageResult.setTitle(messages.getTitle());
-            if(messages.getCourseId()!=null){
+            if (messages.getCourseId() != null) {
                 messageResult.setContent(coursesMapper.selectByPrimaryKey(messages.getCourseId()).getTitle());
             }
-            if(messages.getContentId()!=null){
+            if (messages.getContentId() != null) {
                 messageResult.setContent(contentMapper.selectByPrimaryKey(messages.getContentId()).getTitle());
             }
             messageResult.setSentTime(messages.getSentTime());
@@ -127,8 +127,8 @@ public class MessagesServiceImpl implements MessagesService {
 
     @Override
     public void editMessageById(Integer messagesId) {
-     Messages messages=messagsMapper.selectByPrimaryKey(messagesId);
-     messages.setStatus(Boolean.TRUE);
-     messagsMapper.updateByPrimaryKeySelective(messages);
+        Messages messages = messagsMapper.selectByPrimaryKey(messagesId);
+        messages.setStatus(Boolean.TRUE);
+        messagsMapper.updateByPrimaryKeySelective(messages);
     }
 }

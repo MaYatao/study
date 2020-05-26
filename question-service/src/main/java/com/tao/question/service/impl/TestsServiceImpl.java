@@ -17,6 +17,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Random;
 
 /**
  * @Author tao
@@ -42,7 +43,7 @@ public class TestsServiceImpl implements TestsService {
 
     @Override
     public TestResult getTestByTid(Integer testId) {
-        Tests tests=testsMapper.selectByPrimaryKey(testId);
+        Tests tests = testsMapper.selectByPrimaryKey(testId);
         TestResult testResult = new TestResult();
         testResult.setCount(tests.getCount());
         testResult.setDegree(tests.getDegree());
@@ -53,7 +54,7 @@ public class TestsServiceImpl implements TestsService {
         testResult.setChoicesQuestios(new ArrayList<>());
         String[] choice = tests.getChoiceQuestios().split(",");
         String[] choices = tests.getChoicesQuestios().split(",");
-     /*   String[] content = tests.getContentQuestios().split(",");*/
+        /*   String[] content = tests.getContentQuestios().split(",");*/
         for (String s : choice) {
             if (!s.isEmpty()) {
                 int qId = Integer.valueOf(s);
@@ -78,8 +79,8 @@ public class TestsServiceImpl implements TestsService {
     public PageInfo<TestResult> getHotTestList(Integer page, Integer row) {
         List<Tests> testsList = new ArrayList<>();
         Example example = new Example(Tests.class);
-        Example.Criteria criteria=example.createCriteria();
-        criteria.andEqualTo("type",1);
+        Example.Criteria criteria = example.createCriteria();
+        criteria.andEqualTo("type", 1);
         example.orderBy("done").desc();
         testsList = testsMapper.selectByExample(example);
         List<TestResult> resultList = new ArrayList<>();
@@ -108,7 +109,7 @@ public class TestsServiceImpl implements TestsService {
                     testResult.getChoicesQuestios().add(questionsMapper.selectByPrimaryKey(qId));
                 }
             }
-                      resultList.add(testResult);
+            resultList.add(testResult);
         }
         PageHelper.startPage(page, row);
         PageInfo<TestResult> pages = new PageInfo<TestResult>(resultList);
@@ -119,8 +120,8 @@ public class TestsServiceImpl implements TestsService {
     public PageInfo<TestResult> getLastTestList(Integer page, Integer row) {
         List<Tests> testsList = new ArrayList<>();
         Example example = new Example(Tests.class);
-        Example.Criteria criteria=example.createCriteria();
-        criteria.andEqualTo("type",1);
+        Example.Criteria criteria = example.createCriteria();
+        criteria.andEqualTo("type", 1);
         example.orderBy("createTime");
         testsList = testsMapper.selectByExample(example);
         List<TestResult> resultList = new ArrayList<>();
@@ -133,9 +134,9 @@ public class TestsServiceImpl implements TestsService {
             testResult.setTitle(tests.getTitle());
             testResult.setChoiceQuestios(new ArrayList<>());
             testResult.setChoicesQuestios(new ArrayList<>());
-                String[] choice = tests.getChoiceQuestios().split(",");
+            String[] choice = tests.getChoiceQuestios().split(",");
             String[] choices = tests.getChoicesQuestios().split(",");
-                    for (String s : choice) {
+            for (String s : choice) {
                 if (!s.isEmpty()) {
                     int qId = Integer.valueOf(s);
                     testResult.getChoiceQuestios().add(questionsMapper.selectByPrimaryKey(qId));
@@ -147,7 +148,7 @@ public class TestsServiceImpl implements TestsService {
                     testResult.getChoicesQuestios().add(questionsMapper.selectByPrimaryKey(qId));
                 }
             }
-                  resultList.add(testResult);
+            resultList.add(testResult);
         }
         PageHelper.startPage(page, row);
         PageInfo<TestResult> pages = new PageInfo<TestResult>(resultList);
@@ -161,7 +162,6 @@ public class TestsServiceImpl implements TestsService {
         String[] typeList = types.split(",");
         List<Integer> subjects = new ArrayList<>();
         List<Integer> typesList = new ArrayList<>();
-
         for (String s : subjectList) {
             if (!s.isEmpty()) {
                 int subjectId = Integer.valueOf(s);
@@ -175,35 +175,35 @@ public class TestsServiceImpl implements TestsService {
             }
         }
 
-        List<Question> questionList =  questionsMapper.slectQuestionBySubject(subjects,typesList,degree,num);
+        List<Question> questionList = questionsMapper.slectQuestionBySubject(subjects, typesList, degree, num);
         Tests tests = new Tests();
         Date currentTime = new Date();
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         String dateString = formatter.format(currentTime);
         tests.setCreateTime(dateString);
         tests.setCount(questionList.size());
-        tests.setDegree(degree);
+        tests.setDegree((Integer)Math.round(5));
         tests.setUserId(userId);
         tests.setTitle("专项练习");
         String choice = "";
         String choices = "";
-        List choiceList=new ArrayList();
-        List choicesList=new ArrayList();
+        List choiceList = new ArrayList();
+        List choicesList = new ArrayList();
         System.out.println(questionList);
         for (Question q : questionList) {
-            if (q.getType() == 1 ) {
+            if (q.getType() == 1) {
                 choiceList.add(q.getQid());
             }
-            if (q.getType() == 2 ) {
+            if (q.getType() == 2) {
                 choicesList.add(q.getQid());
             }
         }
-        choice= StringUtils.join(choiceList.toArray(),",");
-        choices= StringUtils.join(choicesList.toArray(),",");
+        choice = StringUtils.join(choiceList.toArray(), ",");
+        choices = StringUtils.join(choicesList.toArray(), ",");
         tests.setChoiceQuestios(choice);
         tests.setChoicesQuestios(choices);
         testsMapper.insert(tests);
-        int testId=tests.getTestId();
+        int testId = tests.getTestId();
 
 
         return testId;

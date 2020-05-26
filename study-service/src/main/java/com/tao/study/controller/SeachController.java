@@ -33,7 +33,7 @@ public class SeachController {
             searchParam.setId("000"+new Random(100));
             searchParam.setTitle("Java");
             searchParam.setType(new Random(3).nextInt());
-            seachService.addUser(searchParam);
+            seachService.add(searchParam);
 
             return AIResult.ok();
         } catch (Exception e) { e.printStackTrace();
@@ -45,7 +45,7 @@ public class SeachController {
     @ResponseBody
     public AIResult getSeach() {
         try {
-            List<SearchParam> searchParamList = seachService.queryByUserName("Java");
+            List<SearchParam> searchParamList = seachService.queryByName("Java");
             return AIResult.ok(searchParamList);
         } catch (Exception e) { e.printStackTrace();
             return AIResult.build(500, e.getMessage());

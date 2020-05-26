@@ -58,8 +58,14 @@ public class QuestionServiceImpl implements QuestionService {
         if(question.getSubject()!=null){
             criteria.andEqualTo("subject",question.getSubject());
         }
-        if(!question.getKnowledge().isEmpty()){
-            criteria.andEqualTo("knowledge",question.getKnowledge());
+        if(question.getKnowledge2()!=null){
+            criteria.andEqualTo("knowledge1",question.getKnowledge1());
+        }
+        if(question.getKnowledge2()!=null){
+            criteria.andEqualTo("knowledge1",question.getKnowledge1());
+        }
+        if(question.getKnowledge2()!=null){
+            criteria.andEqualTo("knowledge1",question.getKnowledge1());
         }
         if(question.getDegree()!=0 ){
             criteria.andEqualTo("degree",question.getDegree());

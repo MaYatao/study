@@ -20,11 +20,11 @@ import java.util.List;
 public class KnowledgeController {
     @Autowired
     private KnowledgeService knowledgeService;
-    @RequestMapping(value = "/getKnowledgesBySId")
+    @RequestMapping(value = "/getKnowledgeBySId")
     @ResponseBody
     public AIResult getSubject(Integer subjectId) {
           try {
-            List<Knowledge> subjectResult = knowledgeService.getKnowledgesBySId(subjectId);
+            List<Knowledge> subjectResult = knowledgeService.getKnowledgeBySId(subjectId);
             return AIResult.ok(subjectResult);
         } catch (Exception e) {
             return AIResult.build(500, e.getMessage());

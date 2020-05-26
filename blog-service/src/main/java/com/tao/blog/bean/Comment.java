@@ -17,6 +17,8 @@ public class Comment {   //评论表
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer commentId;
+    @Column(name = "course_id")
+    private Integer courseId;
     /**
      * 评论内容
      */

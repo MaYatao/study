@@ -18,7 +18,9 @@ public class QuestionResult {
     private Integer type;
     private String answer;
     private String userAnswer;
-    private String knowledge;
+    private Integer knowledge1;
+    private Integer knowledge2;
+    private Integer knowledge3;
     private String analysis;
 
 

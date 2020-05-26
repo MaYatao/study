@@ -34,11 +34,11 @@ public class BlogResult {
     private boolean comment;
 
     private int type;
-    private Integer knowledges1;
+    private Integer Knowledge1;
     /**
      * 知识点
      */
-    private Integer knowledges2;
+    private Integer Knowledge2;
 
     /**
      * 知识点

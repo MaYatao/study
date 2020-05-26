@@ -17,11 +17,11 @@ import java.util.List;
 public interface QuestionsMapper extends Mapper<Question> {
     @Select("<script> SELECT * " +
             " FROM tb_question" +
-            " WHERE  subject in " +
+            " WHERE   subject in " +
             "<foreach item='id' index='index' collection='subjects' open='(' close=')' separator=',' > #{id ,jdbcType=INTEGER}  </foreach>" +
             " and type in " +
             "<foreach item='type' index='index' collection='types' open='(' close=')' separator=','> #{type,jdbcType=INTEGER} </foreach>" +
-            " and degree = #{degree} ORDER BY RAND()  LIMIT #{num} </script>")
+            " <if test='degree != 0 ' >  and  degree = #{degree} </if>  ORDER BY RAND()  LIMIT #{num} </script>")
     public List<Question> slectQuestionBySubject(@Param("subjects") List<Integer> subjects, @Param("types") List<Integer> types, @Param("degree") int degree, @Param("num") int num);
 
 }

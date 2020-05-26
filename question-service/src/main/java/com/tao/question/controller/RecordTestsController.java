@@ -35,7 +35,7 @@ public class RecordTestsController    {
             List<Question> questionList = (List<Question>) map.get("questionList");
             Integer testId = (Integer) map.get("testId");
             Integer userId= (Integer) map.get("userId");
-            Integer degree= (Integer) map.get("status");
+            Integer degree= (Integer) map.get("degree");
             String title= (String) map.get("title");
             String spendTime= (String) map.get("spendTime");
             RecordTests recordTests =new RecordTests();
