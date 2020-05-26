@@ -1,6 +1,6 @@
 package com.tao.study.es;
 
-import  com.tao.common.utils.JsonUtils;
+import com.tao.common.utils.JsonUtils;
 import org.elasticsearch.action.admin.indices.create.CreateIndexRequestBuilder;
 import org.elasticsearch.action.admin.indices.create.CreateIndexResponse;
 import org.elasticsearch.action.admin.indices.exists.indices.IndicesExistsRequest;
@@ -147,7 +147,7 @@ public class ElasticOperationService {
 
     public <T> List<T> queryDocumentByParam(String indices, String type, SearchParam param, Class<T> clazz) {
         SearchRequestBuilder builder = buildRequest(indices, type);
-     /*   builder.addSort("createTime", SortOrder.DESC);*/
+        /*   builder.addSort("createTime", SortOrder.DESC);*/
         builder.setQuery(convertParam(param));
         builder.setFrom(0).setSize(10);
         SearchResponse resp = builder.get();
@@ -255,7 +255,10 @@ public class ElasticOperationService {
                 .startObject("goal").field("type", "text").field("analyzer", "ik_smart").endObject()
                 .startObject("basics").field("type", "text").field("analyzer", "ik_smart").endObject()
                 .startObject("type").field("type", "integer").endObject()
-                .startObject("creatTime").field("type", "date").endObject()
+                .startObject("userId").field("type", "integer").endObject()
+                .startObject("imageUrl").field("type", "text").endObject()
+                .startObject("username").field("type", "text").endObject()
+                .startObject("creatTime").field("type", "text").endObject()
                 .startObject("description").field("type", "text").field("analyzer", "ik_smart").endObject()
                 .endObject()
                 .endObject()

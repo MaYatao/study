@@ -48,7 +48,7 @@ public class SeachService {
 
       public List<SearchParam> queryByName(String title) {
         SearchParam param = new SearchParam();
-	   param.setTitle(title);
+	    param.setTitle(title);
 	   return elasticOperationService.queryDocumentByParam(index, type, param,SearchParam.class);
     }
 

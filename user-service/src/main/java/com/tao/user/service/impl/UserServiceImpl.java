@@ -46,7 +46,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User login(User user) {
-     User   u =getUserByName(user.getUsername());
+        User   u =getUserByName(user.getUsername());
         if(u==null){
             throw  new RuntimeException("用户名错误");
         }
