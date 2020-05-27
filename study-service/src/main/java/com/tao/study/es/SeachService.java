@@ -20,15 +20,6 @@ public class SeachService {
 	   elasticOperationService.createIndexIfNotExist(index, type);
     }
 
-    public void batchAdd(List<SearchParam> bean) {
-	   if(CollectionUtils.isEmpty(bean)) {
-	       return ;
-	   }
-	   for(SearchParam user :bean) {
-	       elasticOperationService.addDocumentToBulkProcessor(index, type, user);
-	   }
-    }
-
 
 
     public void add(SearchParam user) {

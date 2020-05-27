@@ -157,20 +157,12 @@ public class ElasticOperationService {
     private BoolQueryBuilder convertParam(SearchParam param) {
 
         BoolQueryBuilder boolQueryBuilder = QueryBuilders.boolQuery();
-        if (StringUtils.hasText(param.getBasics())) {
-            boolQueryBuilder.must(QueryBuilders.termQuery("basics", param.getBasics()));
-        }
+
         if (param.getType() != null) {
             boolQueryBuilder.must(QueryBuilders.rangeQuery("type").gt(param.getType()));
         }
-        if (StringUtils.hasText(param.getDescription())) {
-            boolQueryBuilder.must(QueryBuilders.matchQuery("description", param.getDescription()));
-        }
         if (StringUtils.hasText(param.getTitle())) {
             boolQueryBuilder.must(QueryBuilders.matchQuery("title", param.getTitle()));
-        }
-        if (StringUtils.hasText(param.getContent())) {
-            boolQueryBuilder.must(QueryBuilders.matchQuery("content", param.getContent()));
         }
 
         return boolQueryBuilder;
@@ -251,15 +243,12 @@ public class ElasticOperationService {
         XContentBuilder mappingBuilder = XContentFactory.jsonBuilder().startObject().startObject(type)
                 .startObject("_all").field("enabled", false).endObject()
                 .startObject("properties")
-                .startObject("title").field("type", "text").field("analyzer", "ik_smart").endObject()
-                .startObject("goal").field("type", "text").field("analyzer", "ik_smart").endObject()
-                .startObject("basics").field("type", "text").field("analyzer", "ik_smart").endObject()
+                .startObject("title").field("type", "text").endObject()
                 .startObject("type").field("type", "integer").endObject()
                 .startObject("userId").field("type", "integer").endObject()
                 .startObject("imageUrl").field("type", "text").endObject()
                 .startObject("username").field("type", "text").endObject()
                 .startObject("creatTime").field("type", "text").endObject()
-                .startObject("description").field("type", "text").field("analyzer", "ik_smart").endObject()
                 .endObject()
                 .endObject()
                 .endObject();

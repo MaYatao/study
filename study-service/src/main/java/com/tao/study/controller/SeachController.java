@@ -20,32 +20,12 @@ public class SeachController {
 
     @Autowired
     private SeachService seachService;
-
-    @RequestMapping(value = "/add")
+    
+    @RequestMapping(value = "/search")
     @ResponseBody
-    public AIResult addSeach() {
+    public AIResult getSeach(String content) {
         try {
-            SearchParam searchParam=new SearchParam();
-            searchParam.setBasics("O基础");
-            searchParam.setContent("Java是最好的语言");
-
-            searchParam.setDescription("hhahsd表达方式能尽快流芳百世的距离发表了多少");
-            searchParam.setId("000"+new Random(100));
-            searchParam.setTitle("Java");
-            searchParam.setType(new Random(3).nextInt());
-            seachService.add(searchParam);
-
-            return AIResult.ok();
-        } catch (Exception e) { e.printStackTrace();
-            return AIResult.build(500, e.getMessage());
-        }
-
-    }
-    @RequestMapping(value = "/get")
-    @ResponseBody
-    public AIResult getSeach() {
-        try {
-            List<SearchParam> searchParamList = seachService.queryByName("Java");
+            List<SearchParam> searchParamList = seachService.queryByName(content);
             return AIResult.ok(searchParamList);
         } catch (Exception e) { e.printStackTrace();
             return AIResult.build(500, e.getMessage());

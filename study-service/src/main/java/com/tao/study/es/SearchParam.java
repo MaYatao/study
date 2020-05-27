@@ -11,20 +11,15 @@ import lombok.Data;
 @Data
 public class SearchParam {
 
-    private String id; //资源id
-    // 课程描述
-     private String description;
-    //学习基础
-     private String basics;
-    private String createTime;
-    //学习目标
-    private String goal;
-    //标题
+
+    private Integer  sid; //资源id
+
     private String  title;
     // 内容
-    private  String username;
     private Integer  userId;
-    private String  content;
+
+    private String createTime;
+    private  String username;
     private Integer type;     //0 帖子  1课程  3 试题
     private String  imageUrl; // 封面
 
